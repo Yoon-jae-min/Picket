@@ -1,0 +1,78 @@
+#List_title{
+    position: relative;
+    text-align: center;
+    font-size: 1.5em;
+    width:10%;  
+    margin: 2% auto 0; 
+    border-top:10px double black;
+    border-bottom:10px double black;
+}
+#my_QAlist{
+  width: 60%;
+  height: 400px;
+  margin: 0.3% auto;
+  border-top:4px double black;
+  border-bottom: 4px double black;
+  text-align: center;
+}
+#my_QAlist th{
+  background-color: lightgray;
+  font-size: 20px;
+  border-left: 0.5px solid gray;
+  height: 15%;
+}
+#my_QAlist td{ 
+  border-left: 0.5px solid gray;
+  border-bottom: 0.5px solid gray;
+}
+#my_QAlist td:first-child{
+  border-left:none;
+}
+#my_QAlist th:first-child{
+  border-left: none;
+}
+#my_QAlist tr:last-child{
+  border-bottom: none;
+}
+a{
+  color:inherit;
+  text-decoration: none;
+}
+#QA_query{
+  display:inline;
+  vertical-align: middle;
+  height: 20%;
+}
+#QA_type{
+  text-align: center;
+  font-weight: bold;
+  width:4%;
+  height: 20px;
+  border:0.5px solid black;
+  position: relative;
+  left:60%;
+}
+#QA_search{
+  width:12.8%;
+  height: 18px;
+  border:0.5px solid black;
+  position: relative;
+  left:60%;
+}
+#submit{
+  font-size: 0.7em;
+  font-weight: bold;
+  height: 20px;
+  border:0.5px solid black;
+  width:2.5%;
+  position: relative;
+  left:60%; 
+}
+.page_select{
+  text-align: center;
+  font-size: 15px;
+  letter-spacing: 10px;
+}
+.page_select>a{
+  font-size:20px
+}

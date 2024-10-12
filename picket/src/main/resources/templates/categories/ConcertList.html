@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/products.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <title>콘서트</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+</head>
+<body>
+
+<header>
+    <nav id="nav1">
+        <a href="/main"><img id="logo" src="/image/icon/로고.png" width="55%" ></a>
+        <ul>
+            <li><a href="/categories/concertlist">콘서트</a></li>
+            <li><a href="/categories/musicallist">뮤지컬</a></li>
+            <li><a href="/categories/actlist">연극</a></li>
+            <li><a href="/categories/classiclist">클래식</a></li>
+            <li><a href="/categories/exhibitlist">전시회</a></li>
+        </ul>
+
+    </nav>
+    <div>
+        <a href="/mypagemain"><img id="my" src="/image/icon/마이페이지.png" width="50" padding="10 0 0 0"></a>
+        <a href="/support"><img id="callcenter" src="/image/icon/물음표.png" width="45" padding="10 0 0 0"></a>
+        <a th:href="${session.customer != null ? '/logout' : '/loginpage'}">
+            <img id="login" th:src="${session.customer != null ? '/image/icon/로그아웃.png' : '/image/icon/로그인.png'}" width="45">
+        </a>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <button class="prevBtn">&lt;</button>
+        <div class="item_box">
+            <div class="item"><a href="/concert/lovesome"><div class="intext"> <span>마음방울채집</span><p>2024.04.27 ~ 2024.04.28 올림픽공원</p></div><img src="/image/category/concert_mini/마음방울채집.jpg"></a></div>
+            <div class="item"><a href="/concert/daysix"><div class="intext"> <span>DAY6 CONCERT</span><p>2024.04.12 ~ 2024.04.14 잠실실내체육관</p></div><img src="/image/category/concert_mini/DAY6 CONCERT〈Welcome to the Show〉.jpg"></a></div>
+            <div class="item"><a href="/concert/hipho"><div class="intext"> <h3>HIPHOPPLAYA</h3><span>FESTIVAL 2024</span><p>2024.05.04 ~ 2024.05.05 난지한강공원</p></div><img src="/image/category/concert_mini/HIPHOPPLAYA FESTIVAL 2024.jpg"></a></div>
+            <div class="item center"><a href="/concert/king"><div class="intext"> <h3>King Gnu</h3><span>Asia Tour</span><p>2024.04.19 ~ 2024.04.20 올림픽공원</p></div><img src="/image/category/concert_mini/King Gnu Asia Tour ‘THE GREATEST UNKNOWN’ in Seoul.jpg"></a></div>
+            <div class="item"><a href="/concert/glow"><div class="intext" style="color: black;"> <span>더글로우2024</span><p>2024.04.13 ~ 2024.04.14 일산 킨텍스(KINTEX)</p></div><img src="/image/category/concert_mini/더글로우2024.jpg"></a></div>
+            <div class="item"><a href="/concert/lovesome"><div class="intext"> <span>마음방울채집</span><p>2024.04.27 ~ 2024.04.28 올림픽공원</p></div><img src="/image/category/concert_mini/마음방울채집.jpg"></a></div>
+            <div class="item"><a href="/concert/daysix"><div class="intext"> <span>DAY6 CONCERT</span><p>2024.04.12 ~ 2024.04.14 잠실실내체육관</p></div><img src="/image/category/concert_mini/DAY6 CONCERT〈Welcome to the Show〉.jpg"></a></div>
+        </div>
+        <button class="nextBtn">&gt;</button>
+    </div>
+
+    <h1><i>LIST ALL</i></h1>
+    <div id="list">
+
+        <div class="product"><a href="/concert/season"><ul class="goodsname"><span class="truncate">노지훈 in SEOUL</span><li>콘서트/국내뮤지션</li></ul> <div class="time"><span>2024/04/06 ~ 2024/04/06</span></div>
+            <img src="/image/category/concert/2024 SEASON TEAM 노지훈 in SEOUL.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>8세 이상</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>건국대학교</li></ul>
+                <ul class="goodscontent"> 공연시간  <li>100분</li></ul>
+                <ul class="goodscontent"> 가격  <li>66000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/concert/lovesome"><ul class="goodsname"><span class="truncate">2024 LOVESOME</span><li>콘서트/페스티벌</li></ul> <div class="time"><span>2024/04/27 ~ 2024/04/28</span></div>
+            <img src="/image/category/concert/2024 LOVESOME.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>만7세 이상</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>올림픽공원</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>600분</li></ul>
+                <ul class="goodscontent"> 가격  <li>110000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/concert/boys"><ul class="goodsname"><span class="truncate">Boys Like Girls Live</span><li>콘서트/해외뮤지션</li></ul> <div class="time"><span>2024/04/30 ~ 2024/04/30</span></div>
+            <img src="/image/category/concert/Boys Like Girls Live in Seoul.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>13세 이상</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>PICKET LIVE HALL</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>90분</li></ul>
+                <ul class="goodscontent"> 가격  <li>115000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/concert/daysix"><ul class="goodsname"><span class="truncate">DAY6 CONCERT</span><li>콘서트/국내뮤지션</li></ul> <div class="time"><span>2024.04.12 ~ 2024.04.14</span></div>
+            <img src="/image/category/concert/DAY6 CONCERT〈Welcome to the Show〉.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>만 7세 이상</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>잠실 실내체육관</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>180분</li></ul>
+                <ul class="goodscontent"> 가격  <li>66000원</li></ul>
+            </div>
+        </a>
+        </div>
+
+        <div class="product"><a href="/concert/beautiful"><ul class="goodsname"><span class="truncate">뷰티풀 민트 라이프</span><li>콘서트/페스티벌</li></ul> <div class="time"><span>2024/05/11 ~ 2024/05/12</span></div>
+            <img src="/image/category/concert/뷰티풀 민트 라이프 2024.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>전체관람</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>올림픽공원</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>480분</li></ul>
+                <ul class="goodscontent"> 가격  <li>110000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/concert/king"><ul class="goodsname"><span class="truncate">King Gnu Asia Tour</span><li>콘서트/해외뮤지션</li></ul> <div class="time"><span>2024/04/19 ~ 2024/04/20</span></div>
+            <img src="/image/category/concert/King Gnu Asia Tour ‘THE GREATEST UNKNOWN’ in Seoul.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>만 7세 이상</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>예술의전당</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>90분</li></ul>
+                <ul class="goodscontent"> 가격  <li>110000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/concert/glow"><ul class="goodsname"><span class="truncate">더 글로우 2424</span><li>콘서트/페스티벌</li></ul> <div class="time"><span>2024/04/13 ~ 2024/04/14</span></div>
+            <img src="/image/category/concert/더글로우2024.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>8세 이상</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>일산 킨텍스</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>570분</li></ul>
+                <ul class="goodscontent"> 가격  <li>66000원</li></ul>
+            </div>
+        </a>
+        </div>
+
+        <div class="product"><a href="/concert/hipho"><ul class="goodsname"><span class="truncate">HIPHOPPLAYA </span><li>콘서트/페스티벌</li></ul> <div class="time"><span>2024/05/04 ~ 2024/05/05</span></div>
+            <img src="/image/category/concert/HIPHOPPLAYA FESTIVAL 2024.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>13세 이상</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>난지 한강공원 </li></ul>
+                <ul class="goodscontent"> 관람시간  <li>480분</li></ul>
+                <ul class="goodscontent"> 가격  <li>66000원</li></ul>
+            </div>
+        </a>
+        </div>
+    </div>
+
+
+</main>
+<footer>
+    <div class="footer-side">
+        <div id="foot-top"> <a href="#" >이용약관 </a><a href="#">단체 문의</a><a href="#" >공연 등록 문의</a><a href="#" >개인정보처리방침</a><a href="#" >청소년보호정책</a>
+        </div>
+        <div id="footer-left">
+            <span> <h4>고객센터 1600-1588(유료)</h4></span>
+            <span> <h4>이메일 picket@ezn.co.kr</h4></span><br>
+            <span> 평일(월~금) 10:00 ~ 17:30</span><br>
+            <span> 주말 및 공휴일 휴무</span>
+        </div>
+
+        <img src="/image/icon/피켓로고검정.png" width="10%">
+        <div>
+            <span>대표자 TeamProject |</span><span> 서울 강남구 풍성로 62길 대우빌딩</span> <span>| 사업자 등록번호 154-15-11562</span ><span>| 통신판매업신고 : 제2024-0001호</span><br>
+            <span>호스팅서비스사업자 : Picket(주) </span><span>&copy;PicketCorp.Allright Reserved</span>
+        </div>
+    </div>
+</footer>
+<script th:inline="javascript">
+    const Btn = document.querySelector("#login")
+
+    if(Btn.getAttribute("src") === '/image/icon/로그아웃.png'){
+        Btn.addEventListener("click", function(event){
+            if(confirm("로그아웃 하시겠습니까?")){
+                alert("로그아웃되었습니다.");
+            }
+            else{
+                event.preventDefault();
+            }
+        });
+    }
+</script>
+<script src="../js/carouselTest.js"></script>
+</body>
+</html>

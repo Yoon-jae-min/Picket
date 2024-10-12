@@ -1,0 +1,239 @@
+*{padding:0;margin:0}
+
+  .top-main-bg{
+    background-color:#000000;
+  }
+
+
+
+
+
+
+main{
+  background-color: #fff;
+}
+
+.profile_titlename h2{
+  font-family:'wind';
+  font-size:40px;
+  padding:2% 0;
+  text-align:center;
+
+}
+
+.mypagemain_menu{
+    margin-top:148px !important;
+}
+  .profile_asta{
+    padding-bottom:30px;
+  }
+  .profile_tablemain{
+    display:flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .profile_tablemain > table{
+    border-collapse: collapse;
+    border: 4px solid black;
+    width:60%;
+    height:100%;
+  }
+
+  .profile_table_td, .profile_solid_tr th{
+    border:1px solid #121212;
+  }
+
+  .profile_table_td{
+    padding:3%;
+    background-color:#fff;
+
+  }
+
+  .profile_table_space_td{
+    padding:3%;
+  }
+
+  .profile_tablemain th{
+    font-family:'wind';
+    font-size:15px;
+    width:15%;
+    color:white;
+    background-color:#121212;
+    text-align:center;
+  }
+
+  .profile_spacetable td{
+    background-color:rgb(255, 255, 255);
+  }
+
+  .profile_button1 {
+    display:flex;
+    justify-content:right;
+    margin:30px 370px;
+  }
+  .profile_button2 {
+      display:flex;
+      justify-content: space-between;
+      margin: 0 370px 5% 390px;
+    }
+
+  .profile_button1 button{
+    font-family: 'wind';
+    font-weight: 500;
+    padding:10px 20px;
+    margin-right:20px;
+    border: 2px solid #000000;
+    border-radius:980px;
+    background-color:#fff;
+    font-size:14px;
+    color:#000000;
+    cursor: pointer;
+
+  }
+  .profile_button1 :hover{
+    color:#fff;
+    background-color:#000000;
+  }
+  .profile_button1 a{
+    font-size:14px !important;
+  }
+  .profile_button2 button{
+      font-family: 'wind';
+      font-weight: 500;
+      padding:10px 20px;
+      margin-right:20px;
+      border: 2px solid #000000;
+      border-radius:980px;
+      background-color:#fff;
+      font-size:14px;
+      color:#000000;
+      cursor: pointer;
+
+    }
+    .profile_button2 :hover{
+      color:#fff;
+      background-color:#000000;
+    }
+    .profile_button2 a{
+      font-size:14px !important;
+    }
+
+
+
+  /* 모달 창 */
+
+  #modal{
+      display : none;
+      z-index : 1;
+      background-color: rgba(0,0,0,.3);
+      position:fixed;
+      left:0;
+      top: 0;
+      width:100%;
+      height:100%;
+  }
+  #modal>#content{
+      width:500px;
+      margin:100px auto;
+      padding:20px;
+      position: relative;
+      background-color:#fff;
+      font-family:'wind';
+      font-size:30px;
+      font-weight:300;
+      text-align:center;
+      border:3px solid;
+  }
+
+  #modal .close{
+      position:absolute;
+      top:4px;
+      right:4px;
+      font-size:20px;
+      border:0;
+      background-color: #fff;
+    }
+  #modal .close:hover,
+  #modal .close:focus {
+      color : #000;
+      text-decoration: none;
+      cursor :pointer;
+  }
+  #pwd{
+    width:250px;
+    height:30px;
+    font-size:20px;
+    border:3px solid;
+  }
+  #btnCheck{
+    width:100px;
+    height:30px;
+    background-color:#fff;
+    color:#000;
+
+  }
+  #btnCheck:hover{
+  background-color:#000;
+  coloR:#fff;
+  }
+
+
+
+
+
+
+  /* 회원탈퇴 */
+  #modal2{
+        display : none;
+        z-index : 1;
+        background-color: rgba(0,0,0,.3);
+        position:fixed;
+        left:0;
+        top: 0;
+        width:100%;
+        height:100%;
+    }
+    #modal2>#content2{
+        width:500px;
+        margin:100px auto;
+        padding:20px;
+        position: relative;
+        background-color:#fff;
+        font-family:'wind';
+        font-size:30px;
+        font-weight:300;
+        text-align:center;
+        border:3px solid;
+    }
+
+    #modal2 .close{
+        position:absolute;
+        top:4px;
+        right:4px;
+        font-size:20px;
+        border:0;
+        background-color: #fff;
+      }
+    #modal2 .close:hover,
+    #modal2 .close:focus {
+        color : #000;
+        text-decoration: none;
+        cursor :pointer;
+    }
+    #pwd2{
+      width:250px;
+      height:30px;
+      font-size:20px;
+      border:3px solid;
+    }
+    #btnCheck2{
+      width:100px;
+      height:30px;
+      background-color:#fff;
+      color:#000;
+
+    }
+    #btnCheck2:hover{
+    background-color:#000;
+    color:#fff;
+    }

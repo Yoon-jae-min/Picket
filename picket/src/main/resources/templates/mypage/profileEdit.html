@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/profilecss.css">
+    <link rel="stylesheet" type="text/css" href="../css/mypagemaincss.css">
+    <link rel="stylesheet" href="/css/font.css">
+
+    <title>회원정보수정</title>
+</head>
+<body>
+<header>
+    <nav id="nav1">
+        <a href="/main"><img id="logo" src="/image/icon/로고.png" width="55%" ></a>
+        <ul>
+            <li><a href="/categories/concertlist">콘서트</a></li>
+            <li><a href="/categories/musicallist">뮤지컬</a></li>
+            <li><a href="/categories/actlist">연극</a></li>
+            <li><a href="/categories/classiclist">클래식</a></li>
+            <li><a href="/categories/exhibitlist">전시회</a></li>
+        </ul>
+    </nav>
+    <div>
+        <a href="/mypagemain"><img id="my" src="/image/icon/마이페이지.png" width="50" padding="10 0 0 0"></a>
+        <a href="/support"><img id="callcenter" src="/image/icon/물음표.png" width="45" padding="10 0 0 0"></a>
+        <a href="/logout"><img id="login" src="/image/icon/로그아웃.png" width="45"></a>
+    </div>
+
+</header>
+<main>
+    <div class="mypagemain_menu">
+
+        <input type="checkbox" id="mypagemain_expand-menu" name="mypagemain_expand-menu">
+        <ul class="list">
+            <li class="mypagemain_menu_underline"><a href="/mypagemain" class="mypagemain_item">마이 티켓</a></li>
+            <li class="mypagemain_menu_underline"><a href="/wishlist" class="mypagemain_item">찜목록</a></li>
+            <li class="mypagemain_menu_underline"><a href="/pointlist" class="mypagemain_item">포인트</a></li>
+            <li class="mypagemain_menu_underline"><a href="/profile" class="mypagemain_item">회원정보</a></li>
+            <li><a href="/QAList" class="mypagemain_item">문의내역</a></li>
+        </ul>
+    </div>
+    <div class="profile_titlename"><h2>회원정보수정</h2></div>
+    <form action="/EditedProfile" id="EditedProfile" method="POST">
+        <div class="profile_asta">
+            <div class="profile_tablemain">
+                <table class="profile_tablebox">
+                    <tr class="profile_solid_tr">
+                        <th>ID</th>
+                        <td class="profile_table_td"><input type="text" name="id"
+                                                            th:value="${session.customer.id}"
+                                                            pattern="^[a-zA-Z0-9]+$"
+                                                            style="width:300px;height:40px;font-size:25px;" readonly></td>
+                    </tr>
+                    <tr class="profile_solid_tr">
+                        <th>PW</th>
+                        <td class="profile_table_td"><input type="password" name="password"
+                                                            id="newPassword"
+                                                            style="width:300px;height:40px;font-size:25px;"
+                                                            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d@$!%*?&]{8,15}$"
+                                                            placeholder="new Password"></td>
+                    </tr>
+                    <tr class="profile_solid_tr">
+                        <th>이름</th>
+                        <td class="profile_table_td"><input type="text" name="name"
+                                                            th:value="${session.customer.name}"
+                                                            style="width:150px;height:40px;font-size:25px;" required></td>
+                    </tr>
+
+                    <tr class="profile_solid_tr">
+                        <th>생년월일</th>
+                        <td class="profile_table_td"><input type="text" name="birthdate"
+                                                            th:value="${session.customer.birthdate}"
+                                                            pattern="^(?:[0-9]{2})\/(?:0[1-9]|1[0-2])\/(?:0[1-9]|[1-2][0-9]|3[0-1])$"
+                                                            style="width:150px;height:40px; font-size:20px;" required></td>
+                    </tr>
+                    <tr class="profile_solid_tr">
+                        <th>전화번호</th>
+                        <td class="profile_table_td"><input type="text" name="tel"
+                                                            th:value="${session.customer.tel}"
+                                                            pattern="^01[0-9]{1}-?[0-9]{3,4}-?[0-9]{4}$"
+                                                            style="width: 300px; height: 40px; font-size: 20px;" required></td>
+                    </tr>
+                    <tr class="profile_solid_tr">
+                        <th>이메일</th>
+                        <td class="profile_table_td"><input type="email" name="email"
+                                                            th:value="${session.customer.email}"
+                                                            style="width: 300px;height:40px; font-size:20px;" required></td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="profile_button1">
+                <button type="submit">수정하기</button>
+            </div>
+        </div>
+    </form>
+</main>
+<footer>
+    <div class="footer-side">
+        <div id="foot-top"> <a href="#" >이용약관 </a><a href="#">단체 문의</a><a href="#" >공연 등록 문의</a><a href="#" >개인정보처리방침</a><a href="#" >청소년보호정책</a>
+        </div>
+        <div id="footer-left">
+            <span> <h4>고객센터 1600-1588(유료)</h4></span>
+            <span> <h4>이메일 picket@ezn.co.kr</h4></span><br>
+            <span> 평일(월~금) 10:00 ~ 17:30</span><br>
+            <span> 주말 및 공휴일 휴무</span>
+        </div>
+
+        <img src="../image/icon/피켓로고검정.png" width="10%">
+        <div>
+            <span>대표자 TeamProject |</span><span> 서울 강남구 풍성로 62길 대우빌딩</span> <span>| 사업자 등록번호 154-15-11562</span ><span>| 통신판매업신고 : 제2024-0001호</span><br>
+            <span>호스팅서비스사업자 : Picket(주) </span><span>&copy;PicketCorp.Allright Reserved</span>
+        </div>
+    </div>
+</footer>
+<script th:inline="javascript">
+window.onload = function() {
+    var message = /*[[${Error}]]*/ '';
+    console.log(message);
+    if(message) {
+        alert(message);
+    }
+}
+
+// 정규식 패턴
+const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d@$!%*?&]{8,15}$/;
+
+// 비밀번호 변경 양식 검증 함수
+function validatePassword() {
+    const changedPW = document.getElementById('newPassword').value;
+        if (!passwordPattern.test(changedPW)) {
+            alert("비밀번호 양식이 일치하지 않습니다. 새 비밀번호는 특수문자, 숫자를 포함한 8~15자여야 합니다.");
+            return false;
+        }
+            return true;
+}
+// 비밀번호 변경 양식 제출 시 검증
+document.getElementById('EditedProfile').addEventListener('submit', function(event) {
+    if (!validatePassword()) {
+        event.preventDefault(); // 제출 중지
+    }
+});
+</script>
+</body>
+</html>

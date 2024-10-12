@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <title>Picket로그인</title>
+</head>
+
+<body>
+<header>
+    <a href="/main"><img src="/image/icon/피켓로고검정.png" width=100%></a>
+</header>
+<!-- 메인 -->
+<main>
+    <!-- 헤더 -->
+    <h2>로그인을 통해 더 빠른 예약을 시작하세요!</h2>
+    <div class="container" id="container">
+        <!-- 회원가입 창 -->
+        <div class="form-container sign-up-container">
+            <form action="/signup" method="POST" id="signupForm">
+                <h1>회원 가입</h1>
+                <span>사용자 정보를 입력해 주세요</span>
+                <input type="text" name="id"
+                       placeholder="아이디(알파벳, 숫자 최대 20자)"
+                       required/>
+
+                <input type="password" name="password"
+                       id="password"
+                       placeholder="비밀번호(특수문자,숫자를 포함한 8~15자)"
+                       required/>
+
+                <input type="email" name="email"
+                       placeholder="이메일"
+                       required/>
+
+                <input type="text" name="name"
+                       placeholder="이름(최대 15자)" required/>
+
+                <input type="text" name="birthdate"
+                       placeholder="생년월일 6자 예)00/01/01"
+                       required/>
+
+                <input type="tel" name="tel"
+                       placeholder="전화번호 예)010-1234-5678"
+                       required/>
+
+                <button type="button" onclick="validateForm()">회원 가입</button>
+            </form>
+        </div>
+
+        <!-- 로그인 창 -->
+        <div class="form-container sign-in-container">
+            <form action="/login" method="POST">
+                <input type="hidden" name="prevPage" id="prevPage" value="">
+                <h1>로그인</h1>
+
+                <span>사용자 계정을 입력해주세요</span>
+                <input type="text" name="id" placeholder= "아이디" />
+                <input type="password" name="password" placeholder="비밀번호" />
+                <a href="/FindIDPW">아이디/비밀번호를 잊어버리셨나요?</a>
+                <button type="submit">로그인</button>
+            </form>
+        </div>
+
+        <!-- 회원가입 창 레드 레이어 -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>환영합니다!</h1>
+                    <p>로그인을 통해 더 쉽게 티켓을 예매하세요!</p>
+                    <button class="ghost" id="signIn">로그인</button>
+                </div>
+
+                <!-- 로그인 창 레드 레이어 -->
+                <div class="overlay-panel overlay-right">
+                    <h1>아직 회원이<br> 아니신가요?</h1>
+                    <p>회원 가입으로 더 많은 혜택을 누리세요!</p>
+                    <button type="button" class="ghost" id="signUp">회원 가입</button>
+                </div>
+                <script th:inline="javascript">
+                    window.onload = function() {
+                      var errorMessage = /*[[${errorMessage}]]*/ null;
+                      var successMessage = /*[[${successMessage}]]*/ null;
+                        if(errorMessage) {
+                          alert(errorMessage);
+                        }
+                        if(successMessage){
+                          alert(successMessage)
+                        }
+                    }
+
+                    function validateForm() {
+                        var id = document.getElementsByName("id")[0].value;
+                        var password = document.getElementsByName("password")[0].value;
+                        var email = document.getElementsByName("email")[0].value;
+                        var birthdate = document.getElementsByName("birthdate")[0].value;
+                        var tel = document.getElementsByName("tel")[0].value;
+
+                        var idPattern = /^[a-zA-Z0-9]+$/;
+                        var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{8,15}$/;
+                        var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                        var birthdatePattern = /^(?:[0-9]{2})\/(?:0[1-9]|1[0-2])\/(?:0[1-9]|[1-2][0-9]|3[0-1])$/;
+                        var telPattern = /^01[0-9]{1}-?[0-9]{3,4}-?[0-9]{4}$/;
+
+                        if (!idPattern.test(id)) {
+                            alert("아이디는 알파벳과 숫자만 가능합니다.");
+                            return false;
+                        }
+
+                        if (!passwordPattern.test(password)) {
+                            alert("비밀번호는 특수문자, 숫자를 포함한 8~15자여야 합니다.");
+                            return false;
+                        }
+
+                        if (!emailPattern.test(email)) {
+                            alert("올바른 이메일 형식이 아닙니다.");
+                            return false;
+                        }
+
+                        if (!birthdatePattern.test(birthdate)) {
+                            alert("생년월일 형식이 잘못되었습니다. 예) 00/01/01");
+                            return false;
+                        }
+
+                        if (!telPattern.test(tel)) {
+                            alert("올바른 전화번호 형식이 아닙니다. 예) 010-1234-5678");
+                            return false;
+                        }
+
+                        document.getElementById("signupForm").submit();
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="/js/login.js">
+</script>
+</body>
+</html>

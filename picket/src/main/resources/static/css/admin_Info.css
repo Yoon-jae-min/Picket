@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+}
+.container{
+    height: 100vh;
+    width: 80vw;
+    margin: 0 auto;
+    overflow: auto;
+
+    border: 1px solid black;
+}
+
+.mainBox{
+    display: flex;
+}
+
+.mainInfoBox{
+    border-right: 1px solid black;
+}
+
+.mainInfoBox, .descriptionInfoBox{
+    width: 40vw;
+    padding: 10px;
+}

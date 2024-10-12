@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/admin_Info.css">
+    <title>Title</title>
+</head>
+<body>
+        <article class="container">
+            <div class="mainBox">
+                <div class="mainInfoBox">
+                    <p class="infoDetailCategoryBox" th:text="${performanceInfo.detailCategory}"></p>
+                    <p class="infoTitleBox" th:text="${performanceInfo.title}"></p>
+                    <img class="infoImgBox" src="/image/category/act_info/musicalTheaterCarol/musicalTheaterCarol_detail_main.jpg"/>
+                </div>
+                <div class="descriptionInfoBox">
+                    <p class="infoPerformanceDateBox" th:text="${performanceInfo.dates}"></p>
+                    <p class="infoPerformancePlaceBox" th:text="${performanceInfo.place}"></p>
+                    <p class="infoPerformancePriceBox" th:text="${performanceInfo.price} + '원'"></p>
+                    <p class="infoPerformanceRuntimeBox" th:text="${performanceInfo.runtime} + '분'"></p>
+                    <p class="infoPerformanceAgegradeBox" th:text="${performanceInfo.ageGrade}"></p>
+                </div>
+            </div>
+            <hr>
+            <div class="subBox">
+
+            </div>
+
+
+        </article>
+</body>
+</html>

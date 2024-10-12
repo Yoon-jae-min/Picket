@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/payment.css">
+    <title>결제</title>
+</head>
+<!--    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>-->
+
+<!--    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>-->
+
+<!--    <script>-->
+<!--        IMP.init("imp01723330");-->
+
+<!--        function requestPay() {-->
+<!--            IMP.request_pay({-->
+<!--                pg: "html5_inicis",-->
+<!--                pay_method: "card",-->
+<!--                merchant_uid: `payment-${crypto.randomUUID()}`, // 주문 고유 번호-->
+<!--                name: "노르웨이 회전 의자",-->
+<!--                amount: 1,-->
+<!--                buyer_email: "gildong@gmail.com",-->
+<!--                buyer_name: "홍길동",-->
+<!--                buyer_tel: "010-4242-4242",-->
+<!--                buyer_addr: "서울특별시 강남구 신사동",-->
+<!--                buyer_postcode: "01181",-->
+<!--            }, function (response) {-->
+<!--                console.log("확인");-->
+<!--                const notified = fetch(`http://localhost:8080/payment/complete`, {-->
+<!--                    method: "POST",-->
+<!--                    headers: { "Content-Type": "application/json" },-->
+<!--                    body: JSON.stringify({-->
+<!--                        imp_uid: response.imp_uid,-->
+<!--                        merchant_uid: response.merchant_uid,-->
+<!--                    }),-->
+<!--                });-->
+<!--            });-->
+<!--        }-->
+<!--    </script>-->
+
+<div class="modal">
+    <div class="modal_body">
+        <div class="payment_titlename"><h2>주문 확인</h2></div>
+        <div class="payment_asta">
+            <div class="payment_listmain">
+                <table>
+                    <tr class="payment_tablehead">
+
+                        <th>예매 일자</th>
+                        <th>티켓 목록</th>
+                        <th>공연 일자</th>
+                        <th>개수</th>
+                        <th>가격</th>
+                    </tr>
+                    <tr class="payment_tablebody">
+                        <td><select>
+                            <option>2024-xx-x1</option>
+                            <option>2024-xx-x2</option>
+                        </select></td>
+                        <td>티켓 변수</a></td>
+                        <td>2024-xx-x1 ~ 2024-xx-x2</td>
+                        <td><select>
+                            <option>1매</option>
+                            <option>2매</option>
+                            <option>3매</option>
+                            <option>4매</option>
+                        </select></td>
+                        <td>가격 변수</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="btn-open-modal">결제하기</button>
+<button class="btn-close">취소하기</button>
+
+
+<body>
+<!--<button onclick="requestPay()">결제하기</button>-->
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" type="text/css" href="/css/mypagemaincss.css">
+
+    <title>내 문의내역</title>
+</head>
+<body>
+<header>
+    <nav id="nav1">
+
+        <a href="/main"><img id="logo" src="/image/icon/로고.png" width="55%"></a>
+        <ul>
+            <li><a href="/categories/concertlist">콘서트</a></li>
+            <li><a href="/categories/musicallist">뮤지컬</a></li>
+            <li><a href="/categories/actlist">연극</a></li>
+            <li><a href="/categories/classiclist">클래식</a></li>
+            <li><a href="/categories/exhibitlist">전시회</a></li>
+        </ul>
+    </nav>
+    <div>
+        <a href="/mypagemain"><img id="my" src="/image/icon/마이페이지.png" width="50" padding="10 0 0 0"></a>
+        <a href="/support"><img id="callcenter" src="/image/icon/물음표.png" width="45" padding="10 0 0 0"></a>
+        <a href="/logout"><img id="login" src="/image/icon/로그아웃.png" width="45"></a>
+    </div>
+</header>
+<main>
+    <div class="mypa">
+        <div class="mypageplace">
+            <div class="mypageimgtext">
+                <div>
+                    <div class="usernicknamebox">
+                        <span class="usernickname" th:text="${session.customer.name}"></span>님<br>어서오세요
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="mypagelist">
+                <a href="/mypagemain"><img src="/image/mypage/ticket.png">
+                    <div class="mypagelist_right_border">마이 티켓<br><span th:text="${#lists.size(myTicketList)}"></span></div>
+                </a>
+                <a href="/wishlist"><img src="/image/mypage/heart.png">
+                    <div class="mypagelist_right_border">관심목록<br><span th:text="${#lists.size(wishList)}"></span></div>
+                </a>
+                <a href="/pointlist"><img src="/image/mypage/point.png">
+                    <div class="mypagelist_right_border">포인트<br><span th:text="${session.customer.point}"></span></div>
+                </a>
+                <a href="/QAList"><img src="/image/mypage/qalist.png">
+                    <div class="mypagelist_last_right_border">문의내역<br><span th:text="${#lists.size(qaList)}"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="mypagekind">
+
+            </div>
+        </div>
+    </div>
+    <div class="mypagemain_menu">
+
+        <input type="checkbox" id="mypagemain_expand-menu" name="mypagemain_expand-menu">
+        <ul class="list">
+            <li class="mypagemain_menu_underline"><a href="/mypagemain" class="mypagemain_item">마이 티켓</a></li>
+            <li class="mypagemain_menu_underline"><a href="/wishlist" class="mypagemain_item">관심목록</a></li>
+            <li class="mypagemain_menu_underline"><a href="/pointlist" class="mypagemain_item">포인트</a></li>
+            <li class="mypagemain_menu_underline"><a href="/profile" class="mypagemain_item">회원정보</a></li>
+            <li><a href="/QAList" class="mypagemain_item">문의내역</a></li>
+        </ul>
+    </div>
+    <!--<div class="listbox">-->
+    <div class="mypagemain_titlename"><h2>문의내역</h2></div>
+    <form action="">
+        <div class="mypagemain_select_box">
+            <select class="mypagemain_select">
+                <option>전체</option>
+                <option>유형</option>
+                <option>제목</option>
+                <option>등록시간</option>
+                <option>상태</option>
+            </select>
+            <input type="text" name="QA_search" id="QA_search">
+            <button id="submit" name="submit">검색</button>
+        </div>
+    </form>
+    <div class="mypagemain_asta">
+
+
+        <div class="mypagemain_listmain">
+
+            <table>
+                <thead>
+                <tr class="mypagemain_tablehead">
+                    <th class="table_qatype">문의유형</th>
+                    <th class="table_qatitle">문의제목</th>
+                    <th class="table_qadate">등록시간</th>
+                    <th class="table_qastatus">상태</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="mypagemain_tablebody" th:each="qa:${qaList}">
+                    <td th:text="${qa.category}"></td>
+                    <td>
+                        <a th:href="@{'/QA/Detail/'+${qa.qa_id}}" th:text="${#strings.abbreviate(qa.qa_title,10)}"></a>
+                    </td>
+                    <td th:text="${#dates.format(qa.write_date, 'yy/MM/dd HH:mm')}"></td>
+                    <td th:text="${qa.state}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="footer-side">
+        <div id="foot-top"><a href="#">이용약관 </a><a href="#">단체 문의</a><a href="#">공연 등록 문의</a><a href="#">개인정보처리방침</a><a
+                href="#">청소년보호정책</a>
+        </div>
+        <div id="footer-left">
+            <span> <h4>고객센터 1600-1588(유료)</h4></span>
+            <span> <h4>이메일 picket@ezn.co.kr</h4></span><br>
+            <span> 평일(월~금) 10:00 ~ 17:30</span><br>
+            <span> 주말 및 공휴일 휴무</span>
+        </div>
+
+        <img src="/image/icon/피켓로고검정.png" width="10%">
+        <div>
+            <span>대표자 TeamProject |</span><span> 서울 강남구 풍성로 62길 대우빌딩</span> <span>| 사업자 등록번호 154-15-11562</span><span>| 통신판매업신고 : 제2024-0001호</span><br>
+            <span>호스팅서비스사업자 : Picket(주) </span><span>&copy;PicketCorp.Allright Reserved</span>
+        </div>
+    </div>
+</footer>
+<script th:inline="javascript">
+window.onload = function() {
+  var message = /*[[${message}]]*/ '';
+    if(message) {
+      window.alert(message);
+    }
+}
+
+const Btn = document.querySelector("#login")
+
+  if(Btn.getAttribute("src") === '/image/icon/로그아웃.png'){
+    Btn.addEventListener("click", function(event){
+      if(confirm("로그아웃 하시겠습니까?")){
+        alert("로그아웃되었습니다.");
+      } else{
+        event.preventDefault();
+      }
+    });
+  }
+var sortOrder = {}; // 객체를 사용하여 각 칼럼의 정렬 상태를 추적
+
+function sortTable(columnIndex) {
+  var table = document.querySelector('table');
+  var tbody = table.querySelector('tbody');
+  var rows = Array.from(tbody.querySelectorAll('tr'));
+  var headerRow = table.querySelector('thead tr');
+  var headerCells = Array.from(headerRow.querySelectorAll('th'));
+
+// 현재 정렬 상태 확인
+var currentSortOrder = sortOrder[columnIndex] || 'asc';
+
+// 정렬 함수 정의
+var sortFunction;
+  if (currentSortOrder === 'asc') {
+    sortFunction = function(a, b) {
+      return a.cells[columnIndex].textContent.localeCompare(b.cells[columnIndex].textContent);
+    };
+    sortOrder[columnIndex] = 'desc'; // 다음에 클릭할 때는 내림차순으로 변경
+  } else {
+    sortFunction = function(a, b) {
+      return b.cells[columnIndex].textContent.localeCompare(a.cells[columnIndex].textContent);
+    };
+      sortOrder[columnIndex] = 'asc'; // 다음에 클릭할 때는 오름차순으로 변경
+  }
+
+// 정렬 적용
+rows.sort(sortFunction);
+tbody.innerHTML = '';
+  rows.forEach(function(row) {
+    tbody.appendChild(row);
+  });
+
+// 정렬 방향에 따라 헤더 아이콘 변경
+headerCells.forEach(function(cell, index) {
+  if (index === columnIndex) {
+    cell.classList.toggle('asc', sortOrder[columnIndex] === 'asc');
+    cell.classList.toggle('desc', sortOrder[columnIndex] === 'desc');
+  } else {
+    cell.classList.remove('asc', 'desc');
+  }
+});
+}
+
+// 각 헤더 칼럼에 클릭 이벤트 추가
+document.addEventListener('DOMContentLoaded', function() {
+  var headerCells = document.querySelectorAll('thead th');
+  headerCells.forEach(function(cell, index) {
+    cell.addEventListener('click', function() {
+      sortTable(index);
+    });
+  });
+});
+</script>
+<script src="/js/mypagemainjs.js"></script>
+</body>
+
+</html>

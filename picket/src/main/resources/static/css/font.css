@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'sdgothic';
+  font-weight: 500;
+  src: url('../font/Apple_산돌고딕_Neo/AppleSDGothicNeoL.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'sdgothic';
+  font-weight: 300;
+  src: url('../font/Apple_산돌고딕_Neo/AppleSDGothicNeoB.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'wind';
+  font-weight: 500;
+  src: url('../font/둥근바람체/TmoneyRoundWindRegular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'wind';
+  font-weight: 900;
+  src: url('../font/둥근바람체/TmoneyRoundWindExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'fair';
+  font-weight: 900;
+  src: url('../font/정정당당/Platypi-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'song';
+  font-weight: 900;
+  src: url('../font/송명/SongMyung-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'do';
+  font-weight: 900;
+  src: url('../font/송명/DoHyeon-Regular.ttf') format('truetype');
+}

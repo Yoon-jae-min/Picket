@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/profilecss.css">
+    <link rel="stylesheet" type="text/css" href="../css/withdrawal.css">
+    <link rel="stylesheet" href="/css/font.css">
+
+    <title>회원탈퇴</title>
+</head>
+<body>
+<header>
+    <nav id="nav1">
+        <a href="/main"><img id="logo" src="/image/icon/로고.png" width="55%" ></a>
+        <ul>
+            <li><a href="/categories/concertlist">콘서트</a></li>
+            <li><a href="/categories/musicallist">뮤지컬</a></li>
+            <li><a href="/categories/actlist">연극</a></li>
+            <li><a href="/categories/classiclist">클래식</a></li>
+            <li><a href="/categories/exhibitlist">전시회</a></li>
+        </ul>
+    </nav>
+    <div>
+        <a href="/mypagemain"><img id="my" src="/image/icon/마이페이지.png" width="50" padding="10 0 0 0"></a>
+        <a href="/support"><img id="callcenter" src="/image/icon/물음표.png" width="45" padding="10 0 0 0"></a>
+        <a href="/logout"><img id="login" src="/image/icon/로그아웃.png" width="45"></a>
+    </div>
+
+</header>
+<main>
+    <div class="mypagemain_menu">
+
+        <input type="checkbox" id="mypagemain_expand-menu" name="mypagemain_expand-menu">
+        <ul class="list">
+            <li class="mypagemain_menu_underline"><a href="/mypagemain" class="mypagemain_item">예매목록</a></li>
+            <li class="mypagemain_menu_underline"><a href="/wishlist" class="mypagemain_item">찜목록</a></li>
+            <li class="mypagemain_menu_underline"><a href="/pointlist" class="mypagemain_item">포인트</a></li>
+            <li class="mypagemain_menu_underline"><a href="/profile" class="mypagemain_item">회원정보</a></li>
+            <li><a href="/QAList" class="mypagemain_item">문의내역</a></li>
+        </ul>
+    </div>
+
+        <div class="profile_titlename"><h2>회원 탈퇴 약관</h2></div>
+        <div class="withdrawal_terms">
+            <div><h4>제24조(회원탈퇴 및 이용계약 해지 등)</h4></div>
+            <div>
+                ① 여러분은 언제든지 PICKET 서비스의 마이페이지 또는 고객센터를 통하여 회원탈퇴를 할 수 있으며 회사는 특별한 사정이 없는 한 이를 지체 없이 처리하겠습니다.<br>
+                ② 회원탈퇴가 완료되는 경우, 회사는 여러분의 개인정보 중 관련 법령에 따라 보유 의무가 있는 정보를 제외한 개인정보를 지체 없이 삭제하겠습니다.<br>
+                ③ 여러분이 한 번 회원탈퇴를 하신 경우, 서비스 운영정책에서 정하는 바에 따라 어디아파 서비스에 다시 가입하는 것이 제한될 수 있습니다.<br>
+                ④ 회사는 본 조에 따라서 이용제한을 하는 경우 여러분은 이용제한의 철회를 요청할 수 있으며, 해당 절차에 관한 구체적인 내용은 어디아파 서비스 운영정책에서 정하는 바에 의합니다.<br>
+                ⑤ 여러분의 회원자격이 본 조에 따라 박탈되는 경우, 회사는 관련 법령 및 개인정보처리방침에 따라 보유하는 여러분의 정보를 제외한 여러분의 계정에 등록된 정보 일체 등을 삭제합니다.
+            </div>
+            <div class=terms_red>탈퇴 후에는 아이디와 데이터는 복구할 수 없습니다.</div>
+            <form id="delete_form" action="/profile/delete" method="post">
+                <div><input type="checkbox" name="agreements" onClick="agreeCheck(this.form)"> 안내 사항을 모두 확인하였으며, 이에 동의합니다.</div>
+                <div class="button_box"><input type="button" id="checkButton" value="확인" class="terms_button" disabled/></input></div>
+            </form>
+
+        </div>
+
+</main>
+<footer>
+    <div class="footer-side">
+        <div id="foot-top"> <a href="#" >이용약관 </a><a href="#">단체 문의</a><a href="#" >공연 등록 문의</a><a href="#" >개인정보처리방침</a><a href="#" >청소년보호정책</a>
+        </div>
+        <div id="footer-left">
+            <span> <h4>고객센터 1600-1588(유료)</h4></span>
+            <span> <h4>이메일 picket@ezn.co.kr</h4></span><br>
+            <span> 평일(월~금) 10:00 ~ 17:30</span><br>
+            <span> 주말 및 공휴일 휴무</span>
+        </div>
+
+        <img src="../image/icon/피켓로고검정.png" width="10%">
+        <div>
+            <span>대표자 TeamProject |</span><span> 서울 강남구 풍성로 62길 대우빌딩</span> <span>| 사업자 등록번호 154-15-11562</span ><span>| 통신판매업신고 : 제2024-0001호</span><br>
+            <span>호스팅서비스사업자 : Picket(주) </span><span>&copy;PicketCorp.Allright Reserved</span>
+        </div>
+    </div>
+</footer>
+<script th:inline="javascript">
+const Btn = document.querySelector("#login")
+
+if(Btn.getAttribute("src") === '/image/icon/로그아웃.png'){
+    Btn.addEventListener("click", function(event){
+        if(confirm("로그아웃 하시겠습니까?")){
+            alert("로그아웃되었습니다.");
+        } else{
+            event.preventDefault();
+        }
+    });
+}
+</script>
+<script src="/js/withdrawal.js"></script>
+</body>
+</html>

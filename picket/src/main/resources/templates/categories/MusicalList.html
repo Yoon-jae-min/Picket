@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/products.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <title>뮤지컬</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+</head>
+<body>
+<header>
+    <nav id="nav1">
+        <a href="/main"><img id="logo" src="../image/icon/로고.png" width="55%" ></a>
+        <ul>
+            <li><a href="/categories/concertlist">콘서트</a></li>
+            <li><a href="/categories/musicallist">뮤지컬</a></li>
+            <li><a href="/categories/actlist">연극</a></li>
+            <li><a href="/categories/classiclist">클래식</a></li>
+            <li><a href="/categories/exhibitlist">전시회</a></li>
+        </ul>
+
+    </nav>
+    <div>
+        <a href="/mypagemain"><img id="my" src="../image/icon/마이페이지.png" width="50" padding="10 0 0 0"></a>
+        <a href="/support"><img id="callcenter" src="../image/icon/물음표.png" width="45" padding="10 0 0 0"></a>
+        <a th:href="${session.customer != null ? '/logout' : '/loginpage'}">
+            <img id="login" th:src="${session.customer != null ? '/image/icon/로그아웃.png' : '/image/icon/로그인.png'}" width="45">
+        </a>
+    </div>
+</header>
+<main>
+
+    <div class="container">
+        <button class="prevBtn">&lt;</button>
+        <div class="item_box">
+            <div class="item"><a href="/musical/musical_violin.info"><div class="intext" > <span>파가니니</span><p>2024.04.06 ~ 2024.06.02 국립중앙박물관</p></div><img src="/image/category/musical_mini/뮤지컬 〈파가니니〉.jpg"></a></div>
+            <div class="item"><a href="/musical/musical_bear.info"><div class="intext" > <span>베어더뮤지컬</span><p>2024.05.22 ~ 2024.08.25 두산아트센터</p></div><img src="/image/category/musical_mini/베어더뮤지컬.jpg"></a></div>
+            <div class="item"><a href="/musical/musical_dia.info"><div class="intext" > <span>디아길레프</span><p>2024.03.19 ~ 2024.06.09 예스24아트원</p></div><img src="/image/category/musical_mini/뮤지컬 디아길레프.jpg"></a></div>
+            <div class="item center"><a href="/musical/musical_dear.info"><div class="intext" > <span>디어 에반 핸슨</span><p>2024.03.28 ~ 2024.06.23 충무아트센터</p></div><img src="/image/category/musical_mini/뮤지컬 디어 에반 핸슨 （Dear Evan Hansen）.jpg"></a></div>
+            <div class="item"><a href="/musical/musical_next.info"><div class="intext" > <span>넥스트 투 노멀</span><p>2024.03.05 ~ 2024.05.19 광림아트센터</p></div><img src="/image/category/musical_mini/뮤지컬 〈넥스트 투 노멀〉.jpg"></a></div>
+            <div class="item"><a href="/musical/musical_violin.info"><div class="intext" > <span>파가니니</span><p>2024.04.06 ~ 2024.06.02 국립중앙박물관</p></div><img src="/image/category/musical_mini/뮤지컬 〈파가니니〉.jpg"></a></div>
+            <div class="item"><a href="/musical/musical_bear.info"><div class="intext" > <span>베어더뮤지컬</span><p>2024.05.22 ~ 2024.08.25 두산아트센터</p></div><img src="/image/category/musical_mini/베어더뮤지컬.jpg"></a></div>
+        </div>
+        <button class="nextBtn">&gt;</button>
+    </div>
+
+
+    <h1><i>LIST ALL</i></h1>
+    <div id="list">
+
+        <div class="product"><a href="/musical/musical_paris.info"><ul class="goodsname"><span class="truncate">노트르담 드 파리</span><li>뮤지컬/라이센스</li></ul> <div class="time"><span>2024.05.24 ~ 2024.05.26</span></div>
+            <img src="/image/category/musical/2024 뮤지컬 노트르담 드 파리.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>8세이상 관람 가능</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>울산문화예술회관</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>150분</li></ul>
+                <ul class="goodscontent"> 가격  <li>90000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/musical/musical_touching.info"><ul class="goodsname"><span class="truncate">낭만별곡</span><li>뮤지컬/창작</li></ul> <div class="time"><span>2024.03.19 ~ 2024.06.09</span></div>
+            <img src="/image/category/musical/뮤지컬 낭만별곡.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>8세이상 관람 가능</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>예스24아트원</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>100분</li></ul>
+                <ul class="goodscontent"> 가격  <li>44000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/musical/musical_dia.info"><ul class="goodsname"><span class="truncate">디아길레프</span><li>뮤지컬/창작</li></ul> <div class="time"><span>2024.03.19 ~ 2024.06.09</span></div>
+            <img src="/image/category/musical/뮤지컬 디아길레프.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>14세 이상 관람가</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>예스24아트원</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>100분</li></ul>
+                <ul class="goodscontent"> 가격  <li>50000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/musical/musical_dear.info"><ul class="goodsname"><span class="truncate">디어 에반 핸슨</span><li>뮤지컬/라이센스</li></ul> <div class="time"><span>2024.03.28 ~ 2024.06.23</span></div>
+            <img src="/image/category/musical/뮤지컬 디어 에반 핸슨 （Dear Evan Hansen）.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>중학생이상 관람가</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>충무아트센터</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>160분</li></ul>
+                <ul class="goodscontent"> 가격  <li>100000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/musical/musical_next.info"><ul class="goodsname"><span class="truncate">넥스트 투 노멀</span><li>뮤지컬/라이센스</li></ul> <div class="time"><span>2024.03.05 ~ 2024.05.19</span></div>
+            <img src="/image/category/musical/뮤지컬 〈넥스트 투 노멀〉.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>10세 이상</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>광림아트센터</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>140분</li></ul>
+                <ul class="goodscontent"> 가격  <li>80000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/musical/musical_here.info"><ul class="goodsname"><span class="truncate">여기, 피화당</span><li>뮤지컬/창작</li></ul> <div class="time"><span>2024.02.07 ~ 2024.04.14</span></div>
+            <img src="/image/category/musical/뮤지컬 〈여기， 피화당〉.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>중학생이상 관람가</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>플러스씨어터</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>90분</li></ul>
+                <ul class="goodscontent"> 가격  <li>70000원</li></ul>
+            </div>
+        </a>
+        </div>
+
+        <div class="product"><a href="/musical/musical_violin.info"><ul class="goodsname"><span class="truncate">파가니니</span><li>뮤지컬/창작</li></ul> <div class="time"><span>2024.04.06 ~ 2024.06.02</span></div>
+            <img src="/image/category/musical/뮤지컬 〈파가니니〉.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>8세 이상 (미취학 아동 관람불가)</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>국립중앙박물관</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>160분</li></ul>
+                <ul class="goodscontent"> 가격  <li>88000원</li></ul>
+            </div>
+        </a>
+        </div>
+
+
+        <div class="product"><a href="/musical/musical_bear.info"><ul class="goodsname"><span class="truncate">베어 더 뮤지컬 (bare the musical)</span><li>뮤지컬/창작</li></ul> <div class="time"><span>2024.05.22 ~ 2024.08.25</span></div>
+            <img src="/image/category/musical/베어더뮤지컬.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>16세 이상 관람가</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>두산아트센터</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>165분</li></ul>
+                <ul class="goodscontent"> 가격  <li>88000원</li></ul>
+            </div>
+        </a>
+        </div>
+    </div>
+
+</main>
+<footer>
+    <div class="footer-side">
+        <div id="foot-top"> <a href="#" >이용약관 </a><a href="#">단체 문의</a><a href="#" >공연 등록 문의</a><a href="#" >개인정보처리방침</a><a href="#" >청소년보호정책</a>
+        </div>
+        <div id="footer-left">
+            <span> <h4>고객센터 1600-1588(유료)</h4></span>
+            <span> <h4>이메일 picket@ezn.co.kr</h4></span><br>
+            <span> 평일(월~금) 10:00 ~ 17:30</span><br>
+            <span> 주말 및 공휴일 휴무</span>
+        </div>
+
+        <img src="/image/icon/피켓로고검정.png" width="10%">
+        <div>
+            <span>대표자 TeamProject |</span><span> 서울 강남구 풍성로 62길 대우빌딩</span> <span>| 사업자 등록번호 154-15-11562</span ><span>| 통신판매업신고 : 제2024-0001호</span><br>
+            <span>호스팅서비스사업자 : Picket(주) </span><span>&copy;PicketCorp.Allright Reserved</span>
+        </div>
+    </div>
+</footer>
+<script th:inline="javascript">
+const Btn = document.querySelector("#login")
+
+if(Btn.getAttribute("src") === '/image/icon/로그아웃.png'){
+    Btn.addEventListener("click", function(event){
+        if(confirm("로그아웃 하시겠습니까?")){
+            alert("로그아웃되었습니다.");
+        }
+        else{
+            event.preventDefault();
+        }
+    });
+}
+</script>
+<script src="../js/carouselTest.js"></script>
+</body>
+</html>

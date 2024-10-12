@@ -1,0 +1,119 @@
+
+#QA{
+  width:50%;
+  height:auto;
+  margin:5% auto 1%;
+  padding: 1% 3% 1% 3%;
+  border:2px solid black;
+
+  box-shadow: 0 0 5px;
+}
+.QA_TextArea{
+  text-align: center;
+}
+
+.QA_QaContent{
+  position:absolute;
+}
+.QA_ContentTitle{
+  font-size:25px;
+  font-weight:bold;
+  margin: 1% 0 0.5% 24%;
+}
+h5{
+  display: inline;
+  font-size: 15px;
+  margin-top: 2%;
+}
+#QA_type{
+  width:100%;
+  margin-bottom: 2%;
+}
+#name{
+  width:30%;
+  margin:2% 10% 0 1%;
+}
+#tel{
+  width:30%;
+  margin-left: 1%;
+  margin-bottom: 2%;
+}
+#birthday{
+  margin:0 12.5% 0 1%;
+  width:30%;
+}
+#email{
+  width:30%;
+  margin-left:3%;
+}
+#QA_title{
+  width:100%;
+  height:20px;
+  margin-bottom: 2%;
+}
+#file{
+  margin:2% 0 2% 1%;
+}
+h6{
+  font-size:12px;
+  line-height: 2;
+}
+#buttons{
+  padding:0;
+  width:30%;
+  margin: 0 auto;
+}
+#QA_submit{
+  padding:1%;
+  margin-right:6%;
+  margin-left:18%;
+}
+#QA_cancel{
+  padding:1%;
+  margin-left:6%;
+  margin-right: 18%;
+  margin-bottom:5%;
+}
+#comment_length{
+  width:auto;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 1%;
+}
+.counter_others{
+  width:auto;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 1%;
+}
+
+#QA span{
+font-size: 20px;
+}
+.QA_box{
+  width: 50%;
+  margin: 0% auto 0%;
+  height: auto;
+  padding: 1% 3% 1% 3%;
+  border: 2px solid black;
+  box-shadow: 0 0 1px;
+  resize: none;
+}
+#QA_boxId{
+  width: 50%;
+    margin: 0% auto 1%;
+    height: auto;
+    padding: 1% 3% 1% 3%;
+    border: 2px solid black;
+    box-shadow: 0 0 1px;
+}
+
+.QA_box span{
+  font-size:25px;
+  font-weight: bold;
+}
+.QA_box p{
+  font-size:15px;
+}

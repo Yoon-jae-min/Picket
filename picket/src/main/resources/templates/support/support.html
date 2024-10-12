@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/support.css">
+<!--    <link rel="stylesheet" href="/css/common.css">-->
+    <link rel="stylesheet" href="/css/font.css">
+    <title>고객센터</title>
+</head>
+<body>
+<header>
+    <nav id="nav1">
+        <a href="/main"><img id="logo" src="/image/icon/로고.png" width="55%" ></a>
+        <ul>
+            <li><a href="/categories/concertlist">콘서트</a></li>
+            <li><a href="/categories/musicallist">뮤지컬</a></li>
+            <li><a href="/categories/actlist">연극</a></li>
+            <li><a href="/categories/classiclist">클래식</a></li>
+            <li><a href="/categories/exhibitlist">전시회</a></li>
+        </ul>
+
+    </nav>
+    <div>
+        <a href="/mypagemain"><img id="my" src="../image/icon/마이페이지.png" width="50" padding="10 0 0 0"></a>
+        <a href="/support"><img id="callcenter" src="../image/icon/물음표.png" width="45" padding="10 0 0 0"></a>
+        <a th:href="${session.customer != null ? '/logout' : '/loginpage'}">
+            <img id="login" th:src="${session.customer != null ? '/image/icon/로그아웃.png' : '/image/icon/로그인.png'}" width="45">
+        </a>
+    </div>
+</header>
+<div class="Wrap">
+<!--    <main>-->
+<!--        &lt;!&ndash;측면 네비게이션바&ndash;&gt;-->
+<!--        <aside>-->
+<!--            <nav id="left_sidebar">-->
+<!--                <h3>홈>고객센터</h3>-->
+<!--                <h4>FAQ</h4>-->
+<!--                <ul>-->
+<!--                    <hr>-->
+<!--                    <li><a href="#">유형1</a></li><hr>-->
+<!--                    <li><a href="#">유형2</a></li><hr>-->
+<!--                    <li><a href="#">유형3</a></li><hr>-->
+<!--                    <li><a href="#">유형4</a></li><hr>-->
+<!--                    <li><a href="#">유형5</a></li>-->
+<!--                </ul>-->
+<!--            </nav>-->
+<!--            <h5 id="PN">문의전화<br>02)XXX-XXXX</h5>-->
+<!--            <div id="one"><h6><a href="/QAWrite">1:1문의</a></h6></div>-->
+<!--        </aside>-->
+<!--        &lt;!&ndash;FAQ검색창&ndash;&gt;-->
+<!--        <h2 id="FAQ_head">자주 묻는 질문</h2>-->
+<!--        <table id="faq_box" cellpadding="0" bordercolor="black" cellspacing="0">-->
+<!--            <tr>-->
+<!--                <td id="faq_searchHead" rowspan="2" colspan="2">FAQ 검색</td>-->
+<!--                <td>-->
+<!--                    <form id="faq_select">-->
+<!--                        <select id="faq_selector">-->
+<!--                            <option value="all">전체</option>-->
+<!--                            <option value="type">유형</option>-->
+<!--                            <option value="title">제목</option>-->
+<!--                        </select>-->
+<!--                    </form>-->
+<!--                </td>-->
+<!--                <td colspan="5" width="200px"><input type="text" id="faq_searchBox"></td>-->
+<!--                <td width="45px"><button id="faq_searchButton">검색</button></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td colspan="7" id="announcement">&nbsp;* 찾으시는 답변이 없으면 1:1문의를 이용해주세요.</td>-->
+<!--            </tr>-->
+<!--        </table>-->
+<!--        &lt;!&ndash;FAQ 메인박스&ndash;&gt;-->
+<!--        <table id="faq" cellpadding="0" cellspacing="0">-->
+<!--            <tr>-->
+<!--                <th width="30%">유형</th>-->
+<!--                <th class="table_second">제목</th>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><a href="#">유형1</a></td>-->
+<!--                <td class="table_second"><a href="#">제목1</a></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><a href="#">유형2</a></td>-->
+<!--                <td class="table_second"><a href="#">제목2</a></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><a href="#">유형3</a></td>-->
+<!--                <td class="table_second"><a href="#">제목3</a></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><a href="#">유형4</a></td>-->
+<!--                <td class="table_second"><a href="#">제목4</a></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><a href="#">유형5</a></td>-->
+<!--                <td class="table_second"><a href="#">제목5</a></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><a href="#">유형6</a></td>-->
+<!--                <td class="table_second"><a href="#">제목6</a></td>-->
+<!--            </tr>-->
+<!--        </table>-->
+<!--        <p id="more"><a href="#">&lt;&lt;</a><a href="#">&lt;</a><a href>1</a>|<a href="#">2</a>|<a href>3</a>|<a href="#">4</a>|<a href>5</a>|<a href="#">6</a>|<a href>7</a>|<a href="#">8</a>|<a href="#">9</a> <a href="#">&gt;</a> <a href="#">&gt;&gt;</a></p>-->
+<!--        <script>-->
+<!--            /*<![CDATA[*/-->
+<!--        const Btn = document.querySelector("#login")-->
+
+<!--        if(Btn.getAttribute("src") === '/image/icon/로그아웃.png'){-->
+<!--            Btn.addEventListener("click", function(event){-->
+<!--                if(confirm("로그아웃 하시겠습니까?")){-->
+<!--                    alert("로그아웃되었습니다.");-->
+<!--                }-->
+<!--                else{-->
+<!--                    event.preventDefault();-->
+<!--                }-->
+<!--            });-->
+<!--        }-->
+<!--        /*]]>*/-->
+<!--        </script>-->
+<!--    </main>-->
+    <main>
+        <div id="QAcenter">
+            <p>고객센터</p>
+        </div>
+
+        <div class="packaging">
+            <div id="test1"><img class="container" src="/image/icon/티켓.png"><p>티켓</p></div>
+            <div id="test2"><img class="container" src="/image/icon/회원계정.png"><p>회원계정</p></div>
+            <div id="test3"><img class="container" src="/image/icon/회원관리.png"><p>회원관리</p></div>
+        </div>
+        <div id="aa1" class="aa">
+            <div class="FAQ" id="testFAQ1">
+                <input type="checkbox" id="answer01">
+                <label for=answer01> [티켓예매] 티켓 예매는 언제까지 가능한가요?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+                <div>
+                    <p>공연 전 날 까지 예약이 가능하며, 공연에 따라 예매 가능 시간이 다를 수 있으니 공지 및 상품 상세 정보를 확인해주시기 바랍니다.</p>
+                </div>
+                <input type="checkbox" id="answer02">
+                <label for=answer02> [티켓예매] 예약번호입장(현장수령)으로 예매할 경우 대리인 수령이 가능한가요?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+                <div>
+                    <p>티켓을 현장에서 수령하실 때 예매자 본인이 가지 않으셔도 대리인이 수령할 수 있습니다.</p>
+                </div>
+                <input type="checkbox" id="answer03">
+                <label for=answer03> [티켓예매] 예약번호입장(현장수령)으로 예매한 경우 예매확인서를 꼭 지참해야 하나요?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+                <div>
+                    <p>예매확인서를 출력·지참하실 수 없으면 예매시 부여받은 예약번호와 예매자 신분증만 지참하셔도 티켓을
+                        수령하실 수 있습니다. </p>
+                </div>
+            </div>
+        </div>
+        <div id="aa2" class="aa">
+            <div class="FAQ" id="testFAQ2">
+                <input type="checkbox" id="answer04">
+                <label for=answer04> [PICK포인트] PICK포인트 적립은 언제 확인할 수 있나요?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+                <div>
+                    <p>PICK포인트는 주문하신 상품이 모두 출고된 다음 날 적립해 드립니다. 적립 내역은 마이페이지 > 포인트에서 확인하실 수 있습니다.</p>
+                </div>
+                <input type="checkbox" id="answer05">
+                <label for=answer05> [PICK포인트] PICK포인트로 결제할 수 있나요?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+                <div>
+                    <p>PICK포인트는 결제수단으로 사용가능합니다.</p>
+                </div>
+<!--                <input type="checkbox" id="answer06">-->
+<!--                <label for=answer06> 콘텐츠 추가 목록<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>-->
+<!--                <div>-->
+<!--                    <p>추가 되는 답변</p>-->
+<!--                </div>-->
+            </div>
+        </div>
+        <div id="aa3" class="aa">
+            <div class="FAQ" id="testFAQ3">
+                <input type="checkbox" id="answer07">
+                <label for=answer07> [회원정보] 회원 회원탈퇴 후 개인정보는 언제 삭제되나요?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+                <div>
+                    <p>회원탈퇴 즉시 회원의 개인정보는 삭제됩니다.</p>
+                </div>
+                <input type="checkbox" id="answer08">
+                <label for=answer08> [회원] 회원가입/탈퇴는 어떻게 하나요?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+                <div>
+                    <p>우측 상단 사람 아이콘을 클릭 한 후 회원가입이 가능하며 회원탈퇴는 로그인 후 우측 상단 사람 아이콘 > 회원정보 > 하단 회원탈퇴 버튼을 클릭하시면 탈퇴 할 수 있습니다. </p>
+                </div>
+                <input type="checkbox" id="answer09">
+                <label for=answer09> [회원] 구매하지 않은 상품이 발송되었다는 문자를 받았습니다. 정보가 도용된 것인가요?<em><img id="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+                <div>
+                    <p>PICKET에서는 회원이 직접 입력한 휴대폰 번호로 문자를  발송하고 있습니다.<br><br>
+                        이 과정에서 다른 회원이 실수로 휴대폰 번호를 잘못 입력했거나, 과거에 사용했던 번호일 경우 문자가 잘못 발송될 수 있습니다.<br>
+                        예스24 홈페이지 1:1 친절상담 또는 고객센터(1544-3800)로 연락 주시면 확인 후 조치하겠습니다.<br><br>
+                        ※ 주문페이지에서 입력하는 주문고객 휴대폰번호로 주문 관련 진행 과정 문자가 발송됩니다.</p>
+                </div>
+            </div>
+        </div>
+        <div class="packaging">
+            <div id="test4"><img class="container" src="/image/icon/반품및취소.png"><p>취소/교환/반품</p></div>
+            <div id="test5"><img class="container" src="/image/icon/영수증.png"><p>주문/결제/영수증</p></div>
+            <a href="/QAWrite"><div id="test6"><img class="container" src="/image/icon/문의.png"><p>1:1문의</p></div></a>
+        </div>
+        <div id="aa4" class="aa">
+            <div class="FAQ" id="testFAQ4">
+                <input type="checkbox" id="answer10">
+                <label for=answer10> [티켓취소] 티켓을 취소하고 싶습니다.<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+                <div>
+                    <p>취소 시 상담의 예매확인 취소에서 취소 가능하며,취소할 공연의 '상세내역 예매취소'버튼을 눌러 취소할 공연을 선택하신 후 예매<br>
+                        취소하기 버튼을 눌러주세요.<br>
+                        전화로 취소하실 경우 고객센터(1544-6399)로 전화하시면 상담원을 통해 취소가 가능합니다.</p>
+                </div>
+                <input type="checkbox" id="answer11">
+                <label for=answer11> [티켓취소] 티켓 관람 당일 취소가 가능한가요?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+                <div>
+                    <p>기본적으로 공연 관람 당일 취소는 불가합니다.<br>
+
+                        (관람일 당일 취소가 가능한 일부 공연의 경우 공연 금액의 90%가 취소수수료로 부과됩니다.)<br>
+
+                        공연의 특성에 따라 취소마감시간/취소수수료 정책이 달라질 수 있으니 예매 시 반드시 각 공연<br>
+
+                        상세페이지를 확인해주시기 바랍니다.</p>
+                </div>
+                <input type="checkbox" id="answer12">
+                <label for=answer12> [티켓취소] 예매 취소는 언제까지 할 수 있나요?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+                <div>
+                    <p>예매 취소는 공연 당일로부터 5일전까지 가능하며 그 이후에는 불가능합니다.</p>
+                </div>
+            </div>
+        </div>
+        <div id="aa5" class="aa">
+            <div class="FAQ" id="testFAQ5">
+                <input type="checkbox" id="answer13">
+                <label for=answer13> [주문] 꼭 회원으로 가입해야만 예매가 가능한가요?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+                <div>
+                    <p>공연 당일 본인 확인을 위해 회원가입 후 예매를 하실 수 있습니다.</p>
+                </div>
+                <input type="checkbox" id="answer14">
+                <label for=answer14> [주문] 주문내역은 어디서 확인하나요?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+                <div>
+                    <p>우측 상단 사람 아이콘 > 마이 티켓에서 확인 할 수 있습니다.</p>
+                </div>
+                <input type="checkbox" id="answer15">
+                <label for=answer15> [주문] 공연 예매는 언제까지 가능한가요?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+                <div>
+                    <p>기본적으로 관람일 전까지 예매가 가능합니다.<br>
+                        공연에 따라 예매 가능 시간이 다를 수 있으니 공지 및 상품 상세 정보를 확인해주시기 바랍니다.</p>
+                </div>
+            </div>
+        </div>
+<!--        <div id="aa6" class="aa">-->
+<!--            <div class="FAQ" id="testFAQ6">-->
+<!--                <input type="checkbox" id="answer16">-->
+<!--                <label for=answer16> 십새끼 바롷 가네 독수리<em><img id="un" src="../image/icon/화살표키.png" width="100%"></em></label>-->
+<!--                <div>-->
+<!--                    <p>추가 되는 답변</p>-->
+<!--                </div>-->
+<!--                <input type="checkbox" id="answer17">-->
+<!--                <label for=answer17> 콘텐츠 추가 목록<em><img id="un" src="../image/icon/화살표키.png" width="100%"></em></label>-->
+<!--                <div>-->
+<!--                    <p>추가 되는 답변</p>-->
+<!--                </div>-->
+<!--                <input type="checkbox" id="answer18">-->
+<!--                <label for=answer18> 콘텐츠 추가 목록<em><img id="un" src="../image/icon/화살표키.png" width="100%"></em></label>-->
+<!--                <div>-->
+<!--                    <p>추가 되는 답변</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+    </main>
+
+
+    <footer>
+        <div class="footer-side">
+            <div id="foot-top"> <a href="#" >이용약관 </a><a href="#">단체 문의</a><a href="#" >공연 등록 문의</a><a href="#" >개인정보처리방침</a><a href="#" >청소년보호정책</a>
+            </div>
+            <div id="footer-left">
+                <span> <h4>고객센터 1600-1588(유료)</h4></span>
+                <span> <h4>이메일 picket@ezn.co.kr</h4></span><br>
+                <span> 평일(월~금) 10:00 ~ 17:30</span><br>
+                <span> 주말 및 공휴일 휴무</span>
+            </div>
+
+            <img src="../image/icon/피켓로고검정.png" width="10%">
+            <div>
+                <span>대표자 TeamProject |</span><span> 서울 강남구 풍성로 62길 대우빌딩</span> <span>| 사업자 등록번호 154-15-11562</span ><span>| 통신판매업신고 : 제2024-0001호</span><br>
+                <span>호스팅서비스사업자 : Picket(주) </span><span>&copy;PicketCorp.Allright Reserved</span>
+            </div>
+        </div>
+    </footer>
+
+
+</div>
+<script src="/js/support.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/profilecss.css">
+    <link rel="stylesheet" type="text/css" href="/css/mypagemaincss.css">
+    <link rel="stylesheet" href="/css/font.css">
+
+    <title>회원정보</title>
+</head>
+<body>
+<header>
+    <nav id="nav1">
+        <a href="/main"><img id="logo" src="/image/icon/로고.png" width="55%" ></a>
+        <ul>
+            <li><a href="/categories/concertlist">콘서트</a></li>
+            <li><a href="/categories/musicallist">뮤지컬</a></li>
+            <li><a href="/categories/actlist">연극</a></li>
+            <li><a href="/categories/classiclist">클래식</a></li>
+            <li><a href="/categories/exhibitlist">전시회</a></li>
+        </ul>
+    </nav>
+    <div>
+        <a href="/mypagemain"><img id="my" src="/image/icon/마이페이지.png" width="50" padding="10 0 0 0"></a>
+        <a href="/support"><img id="callcenter" src="/image/icon/물음표.png" width="45" padding="10 0 0 0"></a>
+        <a href="/logout"><img id="login" src="/image/icon/로그아웃.png" width="45"></a>
+    </div>
+
+</header>
+<main>
+    <div class="mypagemain_menu">
+
+        <input type="checkbox" id="mypagemain_expand-menu" name="mypagemain_expand-menu">
+        <ul class="list">
+            <li class="mypagemain_menu_underline"><a href="/mypagemain" class="mypagemain_item">마이 티켓</a></li>
+            <li class="mypagemain_menu_underline"><a href="/wishlist" class="mypagemain_item">찜목록</a></li>
+            <li class="mypagemain_menu_underline"><a href="/pointlist" class="mypagemain_item">포인트</a></li>
+            <li class="mypagemain_menu_underline"><a href="/profile" class="mypagemain_item">회원정보</a></li>
+            <li><a href="/QAList" class="mypagemain_item">문의내역</a></li>
+        </ul>
+    </div>
+    <div class="profile_titlename"><h2>회원정보</h2></div>
+    <form>
+        <div class="profile_asta">
+
+            <div class="profile_tablemain">
+                <table class="profile_tablebox">
+
+                    <tr class="profile_solid_tr">
+                        <th>ID</th>
+                        <td class="profile_table_td"><input type="text"
+                                                            style="width:300px;height:40px;font-size:25px;"
+                                                            th:value="${session.customer.id}" readonly></td>
+                    </tr>
+                    <tr class="profile_solid_tr">
+                        <th>이름</th>
+                        <td class="profile_table_td"><input type="text"
+                                                            style="width:150px;height:40px;font-size:25px;"
+                                                            th:value="${session.customer.name}" readonly></td>
+                    </tr>
+
+                    <tr class="profile_solid_tr">
+                        <th>생년월일</th>
+                        <td class="profile_table_td"><input type="text"
+                                                            style="width:150px;height:40px; font-size:20px;"
+                                                            th:value="${session.customer.birthdate}" readonly></td>
+                    </tr>
+                    <tr class="profile_solid_tr">
+                        <th>전화번호</th>
+                        <td class="profile_table_td"><input type="text"
+                                                            style="width: 300px; height: 40px; font-size: 20px;"
+                                                            th:value="${session.customer.tel}" readonly></td>
+                    </tr>
+                    <tr class="profile_solid_tr">
+                        <th>이메일</th>
+                        <td class="profile_table_td"><input type="email"
+                                                            style="width: 300px;height:40px; font-size:20px; "
+                                                            th:value="${session.customer.email}" readonly></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </form>
+            <div class="profile_button2">
+                <!-- <button>돌아가기</button> -->
+                <button type="button" id="btnOpenwith">회원탈퇴</button>
+                <button type="button" id="btnOpenedit">수정하기</button>
+            </div>
+        <!--수정 모달-->
+        <div id='modal'>
+            <div id='content'>
+                <form id="EditPasswordCheck" action="/EditPasswordCheck" method="POST">
+                    <button type='button' class="close" id='btnClose'>X</button>
+                <label>PW확인</label><br/>
+                <input type='password' id='pwd' name="editPasswordCheck" placeholder="PW를 입력하세요"/>
+                <button type='submit' id='btnCheck'>PW확인</button>
+                </form>
+            </div>
+        </div>
+        <!--탈퇴 모달-->
+        <div id='modal2'>
+            <div id='content2'>
+                <form id="WithdrawPasswordCheck" action="/DeletePasswordCheck" method="POST">
+                <input type='button' value='X' class="close" id='btnClose2'/>
+                <label>PW확인</label><br/>
+                <div><input type='password' id='pwd2' name="deletePasswordCheck" placeholder="PW를 입력하세요"/></div>
+                    <button type='submit' id='btnCheck2'>PW확인</button>
+                </form>
+            </div>
+        </div>
+</main>
+<footer>
+    <div class="footer-side">
+        <div id="foot-top"> <a href="#" >이용약관 </a><a href="#">단체 문의</a><a href="#" >공연 등록 문의</a><a href="#" >개인정보처리방침</a><a href="#" >청소년보호정책</a>
+        </div>
+        <div id="footer-left">
+            <span> <h4>고객센터 1600-1588(유료)</h4></span>
+            <span> <h4>이메일 picket@ezn.co.kr</h4></span><br>
+            <span> 평일(월~금) 10:00 ~ 17:30</span><br>
+            <span> 주말 및 공휴일 휴무</span>
+        </div>
+
+        <img src="../image/icon/피켓로고검정.png" width="10%">
+        <div>
+            <span>대표자 TeamProject |</span><span> 서울 강남구 풍성로 62길 대우빌딩</span> <span>| 사업자 등록번호 154-15-11562</span ><span>| 통신판매업신고 : 제2024-0001호</span><br>
+            <span>호스팅서비스사업자 : Picket(주) </span><span>&copy;PicketCorp.Allright Reserved</span>
+        </div>
+    </div>
+</footer>
+<script src="/js/profile.js"></script>
+<script th:inline="javascript">
+    window.onload = function() {
+       var message = /*[[${passwordCheckError}]]*/ '';
+
+       if(message) {
+           window.alert(message);
+       }
+    }
+
+
+const Btn = document.querySelector("#login")
+
+if(Btn.getAttribute("src") === '/image/icon/로그아웃.png'){
+    Btn.addEventListener("click", function(event){
+        if(confirm("로그아웃 하시겠습니까?")){
+            alert("로그아웃되었습니다.");
+        } else{
+            event.preventDefault();
+        }
+    });
+}
+</script>
+</body>
+</html>

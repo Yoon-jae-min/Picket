@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/admin_List.css">
+    <title>Title</title>
+</head>
+<body>
+    <article class="container">
+        <select class="selectBox">
+            <option value="total" selected>전체</option>
+            <option value="concert">콘서트</option>
+            <option value="musical">뮤지컬</option>
+            <option value="act">연극</option>
+            <option value="classic">클래식</option>
+            <option value="exhibit">전시회</option>
+        </select>
+        <div class="listContainer" th:if="${performanceList != null}">
+            <div class="content" th:each="performance : ${performanceList}">
+                <img class="listImg" th:src="${performance.getImgUrl()}">
+                <div class="textContainer">
+                    <p class="titleBox" th:text="${performance.getTitle()}"></p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <script src="/js/admin_list.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+*{padding:0;margin:0}
+  .top-main-bg{
+    background-color:#000000;
+  }
+
+
+/* 찜목록 */
+main{
+  
+  background-color:rgb(238, 245, 253);
+}
+
+.ticketlist_titlename h2{
+  margin: 1px 35% 0%;
+ 
+  
+  padding:2% 0;
+  
+  text-align: center;
+ 
+  border:5px solid rgb(129, 131, 224);
+  border-radius:25%;
+  
+  
+}
+
+.ticketlist_asta{
+  display:flex;
+  justify-content: space-between;
+}
+
+/* 사이드바 */
+  .ticketlist_menu ::before{
+    font-family: 'Material Icons';
+    font-size: 1.5em;
+    float: left;
+    clear: left;
+  }
+ 
+  #ticketlist_expand-menu { /* 체크박스 폼 요소 감춤 */
+    display: none;
+  }
+  #ticketlist_expand-menu:checked ~ ul { /* 체크박스 체크되었으면 메뉴 목록 표시 - 반응형 표시용 */
+    display: block;
+    height: auto;
+  }
+  .ticketlist_menu {
+    display: block;
+    width:150px;
+    background-color:rgb(129, 131, 224);
+    color: #fff;  
+    border-top-right-radius: 15%;
+    border-bottom-right-radius: 15%;
+    margin-top:0%;
+    margin-bottom:50%;
+    padding: 0%;
+    box-sizing: border-box;
+    position:fixed;
+  }
+  .ticketlist_menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .ticketlist_menu a, .ticketlist_menu > label {
+    display: block;
+    height: 25px;
+    padding: 8px;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+  }
+  .ticketlist_menu ul li:hover, .ticketlist_menu > label:hover, .ticketlist_menu a:hover {
+    color: #5a4949;
+  
+  }
+  
+  .ticketlist_menu div {
+    left: 50px;
+    line-height: 1.5;
+    font-size: 1em;
+    font-family: 'Noto Sans KR';
+    padding:0 0 0 20px;
+     /* 패딩 20p로 축소 */
+  }
+  
+  .ticketlist_listmain{
+    flex:1;
+    display:flex;
+    justify-content: center;
+ /*   padding-top:10%;  */
+  }
+  .ticketlist_listmain > table{
+    
+    border-collapse: collapse;
+    text-align:center;
+
+    width:60%;
+    height:100%;
+    
+  }
+  .ticketlist_select_tr{
+    background-color:rgb(238, 245, 253);
+  
+  }
+  
+  .ticketlist_select_th div{
+    padding:2%;
+    text-align:left;
+  }
+  .ticketlist_tablehead , .ticketlist_tablebody {
+    border-bottom:2px solid rgb(129, 131, 224);
+    font-weight: bold;
+  }
+  .ticketlist_listmain td{
+    padding:2% 3%;
+  }
+  .ticketlist_checkbox_width{
+    padding:1% 3%;
+  }
+  .ticketlist_tablehead{
+    background-color:rgb(129, 131, 224); opacity: 0.8;
+    padding:20px;
+    color:white;
+    font-size:18px;
+  }
+ 
+  .ticketlist_ticketnum button{
+    width:20%;
+
+  }
+  .ticketlist_spacetable{
+    border-bottom:0px;
+    padding-bottom:7%;
+  }
+  .ticketlist_pageleft, .ticketlist_pageright{
+    padding:5px 10px;
+  }
+  
+  .ticketlist_pagenum{
+   text-align:center;
+  }
+  .ticketlist_tablesum{
+    
+    background-color:rgba(90, 91, 92, 0.774); opacity: 0.8;
+  }
+  
+  .ticketlist_tablebutton{
+    text-align:right;
+   
+  }
+
+  .ticketlist_buttons{
+    padding:10px 20px;
+    border-radius:20%;
+    border:0;
+    background-color:rgb(129, 131, 224);
+    
+  }
+  .ticketlist_buttons:hover{
+    background-color:rgb(129, 131, 224);
+  }
+  /* 찜목록 끝 */
+
+  
+
+
+
+  /* 푸터 */
+  footer{
+  
+    background-color:#fff;
+    
+  }
+  
+  .footercontainer1{
+    display:flex;
+  }
+  #topc1{
+    justify-content: flex-start;
+  }
+  .rlxk{
+    margin:20px 15px;
+    
+  }
+  .footerLogo{
+    display:flex;
+  }
+  .footerLogo > img{
+    width:11%;
+    height:100%;
+    
+  }
+  .Logotext{
+    padding:15px 0 0 20px;
+  
+    
+  }
+  .footercontainer2{
+    display:flex;
+  }
+  .footercontainer2 > div{
+    margin:10px 5px;
+  }
+  #fc2first{
+    padding-left:10px;
+  }
+  #topc2{
+    justify-content: flex-start;
+  }
+
+
+
+  

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/QA_write.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <title>1:1문의</title>
+</head>
+<body>
+<header>
+    <nav id="nav1">
+        <a href="/main"><img id="logo" src="/image/icon/로고.png" width="55%" ></a>
+        <ul>
+            <li><a href="/categories/concertlist">콘서트</a></li>
+            <li><a href="/categories/musicallist">뮤지컬</a></li>
+            <li><a href="/categories/actlist">연극</a></li>
+            <li><a href="/categories/classiclist">클래식</a></li>
+            <li><a href="/categories/exhibitlist">전시회</a></li>
+        </ul>
+
+    </nav>
+    <div>
+        <a href="/mypagemain"><img id="my" src="/image/icon/마이페이지.png" width="50" padding="10 0 0 0"></a>
+        <a href="/support"><img id="callcenter" src="/image/icon/물음표.png" width="45" padding="10 0 0 0"></a>
+        <a href="/logout"><img id="login" src="/image/icon/로그아웃.png" width="45"></a>
+    </div>
+</header>
+<main>
+    <div id="QA">
+        <h2>1:1문의</h2>
+        <br><br>
+        <form action="/newQA" method="post" enctype="multipart/form-data">
+        <h5>문의하실 유형을 선택해주세요.</h5><br>
+        <select id="QA_type" name="category">
+            <option name="예매 관련 문의" id="유형1">예매 관련 문의</option>
+            <option name="공연 정보 문의" id="유형2">공연 정보 문의</option>
+            <option name="회원 서비스 문의" id="유형3">회원 서비스 문의</option>
+            <option name="기술 지원 문의" id="유형4">기술 지원 문의</option>
+            <option name="기타 문의" id="유형5">기타 문의</option>
+        </select>
+        <hr>
+        <h5>문의 제목</h5><br><input type="text" name="qa_title"
+               maxlength="50" id="QA_title" placeholder="여기에 제목을 입력해주세요.(최대 50자)" required>
+        <br>
+        <h5>문의 내용</h5><br><textarea name="qa_content" id="QA_comment"
+                                    style="width:100%"
+                                    maxlength="1000"
+                                    placeholder="여기에 내용을 입력해주세요(최대 1000자)" required></textarea>
+        <span class="counter_others">(&nbsp;</span><span id="comment_length">0</span> <span class="counter_others"> / 1000 )</span>
+        <hr>
+        <h5>첨부 파일</h5><input type="file" name="file" id="file">
+        <div id="QA_caution">
+            <h6>*문의 내용을 상세하게 작성해 주시기 바랍니다.
+                상세하게 작성이 되지 않을 시 원하는 답을 얻지 못할 수 있습니다.<br>
+                *부적절한 내용 기재시 사이트 이용이 제한 될 수 있습니다.<br>*첨부파일의 최대 용량은 40MB, 최대 해상도는 3840 X 2160입니다.</h6>
+        </div>
+    <div id="buttons">
+        <button id="QA_submit" type="submit">문의 등록</button>
+        <a href="/support"><button id="QA_cancel" type="button" >취소</button></a>
+    </div>
+    </form>
+    </div>
+
+</main>
+<footer>
+</footer>
+<script th:inline="javascript">
+const Btn = document.querySelector("#login")
+
+if(Btn.getAttribute("src") === '/image/icon/로그아웃.png'){
+    Btn.addEventListener("click", function(event){
+        if(confirm("로그아웃 하시겠습니까?")){
+            alert("로그아웃되었습니다.");
+        } else{
+            event.preventDefault();
+        }
+    });
+}
+</script>
+<script src="js/QA_write.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/FindIDPW.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <title>Id, PW 찾기</title>
+</head>
+<body>
+<header>
+    <a href="/main"><img src="/image/icon/피켓로고검정.png" width=100%></a>
+</header>
+<!-- 메인 -->
+<main>
+    <!-- 헤더 -->
+    <h2>아이디와 비밀번호 저희가 찾아드릴게요!</h2>
+    <div class="container" id="container">
+        <!-- 회원가입 창 -->
+        <div class="form-container sign-up-container">
+            <form action="/FindPW" method="POST">
+                <h1>비밀번호 조회</h1>
+                <span>사용자 정보를 입력해 주세요</span>
+                <input type="text" placeholder="이름 예)홍길동" name="name2" id="name2" required/>
+                <input type="text" placeholder="전화번호 예)010-1234-5678" name="tel2" id="tel2"
+                       pattern="^01[0-9]{1}-?[0-9]{3,4}-?[0-9]{4}$" required/>
+                <input type="text" placeholder="아이디" name="id2" id="id2" required/>
+                <a href="/loginpage">로그인 하시겠어요?</a>
+                <button id="button2" type="submit">조 회</button>
+            </form>
+        </div>
+        <!-- 로그인 창 -->
+        <div class="form-container sign-in-container">
+            <form action="/FindId" method="POST">
+                <h1>아이디 조회</h1><br>
+                <span>찾으시는 아이디의 정보를 입력해주세요</span>
+                <input type="text" name="name" id="name" placeholder="이름 예)홍길동" required/>
+                <input type="text" name="tel" id="tel" placeholder="전화번호 예)010-1234-5678"
+                       pattern="^01[0-9]{1}-?[0-9]{3,4}-?[0-9]{4}$" required/>
+                <a href="/loginpage">로그인 하시겠어요?</a>
+                <button id="button1" type="submit">조 회</button>
+            </form>
+        </div>
+        <!-- 회원가입 창 레드 레이어 -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>아이디를 <br>잊어버리셨나요?</h1>
+                    <p>아래를 눌러 아이디를 찾아주세요!</p>
+                    <button class="ghost" id="signIn">아이디 조회</button>
+                </div>
+
+                <!-- 로그인 창 레드 레이어 -->
+                <div class="overlay-panel overlay-right">
+                    <h1>비밀번호를<br> 잊어버리셨나요?</h1>
+                    <p>아래를 눌러 비밀번호를 찾아주세요!</p>
+                    <button class="ghost" id="signUp">비밀번호 조회</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 비밀번호 변경 모달 -->
+    <div class="modal">
+        <div class="modal_body">
+            <h2>비밀번호 변경</h2>
+            <form id="changePW" action="/ChangePW" method="POST">
+                <input type="password" name="changedPW" id="changedPW"
+                       placeholder="새 비밀번호(특수문자,숫자를 포함한 8~15자)"
+                       required />
+                <input type="password" name="changedPWCheck" id="changedPWCheck"
+                       placeholder="새 비밀번호(확인)"
+                       required />
+                <div><button type="submit">변경</button> <button id="cancel" type="button">취소</button></div>
+            </form>
+        </div>
+    </div>
+    <script th:inline="javascript">
+        // 정규식 패턴
+        const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d@$!%*?&]{8,15}$/;
+
+        // 비밀번호 변경 양식 검증 함수
+        function validatePassword() {
+            const changedPW = document.getElementById('changedPW').value;
+            const changedPWCheck = document.getElementById('changedPWCheck').value;
+            if (!passwordPattern.test(changedPW)) {
+                alert("새 비밀번호는 특수문자, 숫자를 포함한 8~15자여야 합니다.");
+                return false;
+            }
+            if (changedPW !== changedPWCheck) {
+                alert("새 비밀번호와 확인 비밀번호가 일치하지 않습니다.");
+                return false;
+            }
+            return true;
+        }
+
+        // 비밀번호 변경 양식 제출 시 검증
+        document.getElementById('changePW').addEventListener('submit', function(event) {
+            if (!validatePassword()) {
+                event.preventDefault(); // 제출 중지
+            }
+        });
+
+        // 취소 버튼 클릭 시 이벤트 처리
+        document.getElementById("cancel").addEventListener('click', function(event){
+            window.location.href = 'http://localhost:8080/FindIDPW';
+        });
+    </script>
+</main>
+<script src="/js/FindIDPW.js">
+</script>
+<script th:inline="javascript">
+    const button1 = document.getElementById("button1");
+    const button2 = document.getElementById("button2");
+    window.onload = function() {
+        var name = /*[[${name}]]*/ '';
+        var foundId = /*[[${foundId}]]*/ '';
+        var findIdError = /*[[${findIdError}]]*/ '';
+        var findPWError = /*[[${findPWError}]]*/ '';
+        var message = (findIdError ? findIdError : '') + (findPWError ? findPWError : '');
+        if (foundId) {
+            alert(name + " 고객님의 아이디는 " + foundId + " 입니다.");
+        }
+        if (message) {
+            alert(message);
+        }
+    }
+
+    var changePW = /*[[${changePW}]]*/ '';
+    const modal = document.querySelector('.modal');
+    if(changePW == true){
+        modal.style.display="flex";
+    }
+</script>
+</body>
+</html>

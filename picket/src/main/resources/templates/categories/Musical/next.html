@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/info.css">
+    <link rel="stylesheet" type="text/css" href="/css/payment.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<header>
+    <nav id="nav1">
+        <a href="/main"><img id="logo" src="/image/icon/로고.png" width="55%" ></a>
+        <ul>
+            <li><a href="/categories/concertlist">콘서트</a></li>
+            <li><a href="/categories/musicallist">뮤지컬</a></li>
+            <li><a href="/categories/actlist">연극</a></li>
+            <li><a href="/categories/classiclist">클래식</a></li>
+            <li><a href="/categories/exhibitlist">전시회</a></li>
+        </ul>/category
+    </nav>
+    <div>
+        <a href="/mypagemain"><img id="my" src="/image/icon/마이페이지.png" width="50" padding="10 0 0 0"></a>
+        <a href="/support"><img id="callcenter" src="/image/icon/물음표.png" width="45" padding="10 0 0 0"></a>
+        <a th:href="${session.customer != null ? '/logout' : '/loginpage'}">
+            <img id="login" th:src="${session.customer != null ? '/image/icon/로그아웃.png' : '/image/icon/로그인.png'}" width="45">
+        </a>
+    </div>
+</header>
+<main>
+<div class="renew-content">
+    <div class="rn-01">
+        <p class="rn-location">
+            <a th:text="${category}"></a>
+        </p>
+        <p class="rn-labels"></p>
+    </div>
+    <div class="rn-02">
+
+        <p class="rn-big-title"><b th:text="${title}"></b></p>
+
+    </div>
+    <span th:text="${dates} + ' | ' + ${place}"></span>
+
+    <div class="renew-content">
+        <div class="rn-03">
+            <div class="rn-03-left">
+                <div class="rn-product-imgbox">
+                    <img src="/image/category/musical_info/넥스트투노멀.jpg"></div>
+                <div class="rn-product-social">
+                    <div id="image-container">
+                        <img th:src="@{${imgUrl}}" alt="Image" onclick="changeImage()">
+                        <span><b>찜하기</b></span>
+                    </div>
+                </div>
+            </div>
+            <div class="rn-03-right">
+                <div class="rn-product-area1">
+                    <dl>
+                        <dt>등급</dt>
+                        <dd>  10세 이상</dd>
+                        <dt>관람시간</dt>
+                        <dd> 총 140분 (인터미션 15분)</dd>
+                        <dt>출연</dt>
+                        <dd> 다이애나: 최정원배해선 / 댄: 이건명마이클리게이브: 산들. 유회승홍기범 / 나탈리: 김환희이서영헨리: 김현진최재웅 / 의사: 박인배</dd>
+                        <dt>가격</dt>
+                        <dd th:text="${price} + '원'"></dd>
+
+                    </dl>
+                </div>
+                <dt>공연시간</dt>
+                <dd>평일 오후 7시 30분 / 토요일 오후 3시, 7시 / 일요일 및 공휴일 오후 2시, 6시 (월요일 공연없음)</dd>
+                <dd></dd>
+                <dd>*4.20(토) 오후 7시 4.21(일) 오후 6시 공연없음</dd>
+                <dt>배송정보</dt>
+                <dd>현장 수령만 가능</dd>
+                <div class="calendar-boxbox">
+                    <div class="calendar-tit1">날짜/시간선택</div>
+                    <div class="calendar-tit2"></div>
+                    <div class="calendar-box">
+
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <img id="prevBtn" src="/image/info/lArrow.png">
+                                <h2 id="currentMonth"></h2>
+                                <img id="nextBtn" src="/image/info/rArrow.png">
+                            </div>
+                            <div>
+                                <div class="calendar-days">
+                                    <div class="day" style="color:red;">일</div>
+                                    <div class="day">월</div>
+                                    <div class="day">화</div>
+                                    <div class="day">수</div>
+                                    <div class="day">목</div>
+                                    <div class="day">금</div>
+                                    <div class="day" style="color:blue;">토</div>
+                                </div>
+                                <div class="calendar-dates" id="calendarDates"></div>
+
+                            </div>
+
+                            <script src="../js/info.js"></script>
+                        </div>
+                    </div>
+                </div>
+                <div class="booking">
+                    <button type="button" id="btnOpenedit"><b>예매하기</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--결제 모달 열기-->
+    <div id='modal'>
+        <div id='content'>
+            <div> <img src="../image/icon/피켓로고검정.png"></div>
+            <button type='button' class="close" id='btnClose'>X</button>
+            <form>
+                <table id="pay">
+                    <tr>
+
+                    </tr>
+                    <tr class="payment_tablehead">
+                        <th class="payment_th">예매 일자</th>
+                        <th class="payment_th">공연 일자</th>
+                        <th class="payment_th">개수</th>
+                        <th class="payment_th">가격</th>
+                    </tr>
+                    <tr class="payment_tablebody">
+                        <td>예매일자 변수</td>
+                        <td>2024-xx-x1</td>
+                        <td><input type="number" id="pay_count" min="0" value="1"></td>
+                        <td>가격 변수</td>
+                    </tr>
+
+                </table>
+
+                <div>
+                    <table id="math">
+                        <tr>
+                            <th>포인트</th><th class="thwidth"></th><th>금액</th><th class="thwidth"></th><th>잔여 포인트</th>
+                        </tr>
+                        <tr>
+
+                        </tr>
+                        <td class="number">포인트 금액 </td><th class="number">-</th><td class="number">티켓 가격</td><td class="number">=</td><td class="number">포인트 금액 - 티켓 가격</td>
+                    </table>
+                </div>
+                <button type="button" class="payment-btn">결제하기</button>
+            </form>
+        </div>
+    </div>
+    <script src="../js/Pay.js"></script>
+    <div class="renew-content">
+        <div class="rn-04">
+            <a href="#scroll1" class="on">
+                <span>유의사항</span>
+            </a>
+            <a href="#scroll2" class="on">
+                <span>공연정보</span>
+            </a>
+            <a href="#scroll3" class="on">
+                <span>상품정보제공 고시</span>
+            </a>
+            <a href="#scroll4" class="on" id="no_border">
+                <span>찾아오시는길</span>
+            </a>
+        </div>
+    </div>
+    <div class="rn-05">
+        <div class="scroll1" id="scroll1"><h2><b>유의사항</b></h2> </div>
+        <p><h5>※ 매수제한: 회차별 1인 4매</h5></p><br>
+        <p><h5>※ 무통장입금제한: 4월 2일(금) 14시부터 4월 16일(화) 13시 59분까지</h5></p><br>
+    </div>
+
+    <div class="rn-05">
+        <img src="/image/category/musical_info/넥스트투노멀인포1.jpg">
+        <img src="/image/category/musical_info/넥스트투노멀인포2.jpg">
+        <div><h2><b>할인정보</b></h2></div>
+        <img src="/image/category/musical_info/넥스트투노멀인포3.jpg">
+        <img src="/image/category/musical_info/넥스트투노멀인포4.jpg">
+        <div class="scroll2" id="scroll2"><h2><b>공연정보</b></h2></div>
+        <img src="/image/category/musical_info/넥스트투노멀인포5.jpg">
+        <img src="/image/category/musical_info/넥스트투노멀인포6.jpg">
+        <img src="/image/category/musical_info/넥스트투노멀인포7.jpg">
+
+
+    </div>
+
+    <div class="moreinfoContainer">
+        <div class="scroll3" id="scroll3"><h2 class="moreinfoTitle">상품정보제공 고시</h2></div>
+        <table class="moreinfoTable">
+            <table class="moreinfoTable1" border="1" cellspacing="0">
+                <colgroup>
+                    <col class="col1">
+                    <col class="col2">
+                    <col class="col3">
+                    <col class="col4">
+                </colgroup>
+                <tbody class="moreinfoTable_tbody_bg_color">
+                <tr class="moreinfoTable_table_info">
+                    <th>주최/기획</th>
+                    <td>(주)엠피앤컴퍼니</td>
+                    <th>소비자 상담</th>
+                    <td>02-744-4033</td>
+                </tr>
+                <tr class="moreinfoTable_table_info">
+                    <th>주연</th>
+                    <td> 다이애나: 최정원, 배해선 / 댄: 이건명, 마이클리, 게이브: 산들. 유회승, 홍기범 / 나탈리: 김환희, 이서영, 헨리: 김현진, 최재웅 / 의사: 박인배 </td>
+                    <th>관람등급</th>
+                    <td>10세 이상</td>
+                </tr>
+                <tr class="moreinfoTable_table_info">
+                    <th>공연시간</th>
+                    <td>총 140분 (인터미션 15분)</td>
+                    <th>공연장소</th>
+                    <td>광림아트센터 BBCH홀</td>
+                </tr>
+                <tr>
+                    <th>취소/환불방법</th>
+                    <td colspan="3">
+                        <div class="table_in_table_div">
+                            <table border="1" cellspacing="0" class="table_in_table">
+                                <tr>
+                                    <th colspan="2">취소일</th>
+                                    <th colspan="2">취소수수료</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">예매 후 7일 이내</td>
+                                    <td colspan="2">없음</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">예매 후 8일~관람일 10일전까지</td>
+                                    <td colspan="2">장당 4,000원(단, 티켓 금액의 10% 이내)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">관람일 9일전~7일전까지</td>
+                                    <td colspan="2">티켓금액의 10%</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">관람일 6일전~3일전까지</td>
+                                    <td colspan="2">티켓금액의 20%</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">관람일 2일전~1일전까지</td>
+                                    <td colspan="2">티켓금액의 30%</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <p>예매수수료는 예매 당일 밤 12시 이전 취소 시에만 환불되며, 그 이후 기간에는 환불되지 않습니다.<br>
+                            취소는 MY공연>예매확인/취소 에서 직접 취소 또는 고객센터(1544-6399)를 통해 취소 가능합니다.<br>
+                            티켓이 배송된 후에는 PC/모바일 취소가 불가, 취소마감시간 이전에 예스24 고객센터로 티켓이 반송되어야 취소 가능합니다.<br>
+                            (취소수수료는 티켓 도착일 기준으로 부과되며, 배송비는 환불되지 않습니다.)<br>
+                            각 상품별로 취소 정책이 다르게 적용될 수 있으니, 각 상품 안내 사항을 확인해주시기 바랍니다.</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </table>
+            <div class="table_underline1"></div>
+    </div>
+</div>
+<div>
+    <div class="scroll4" id="scroll4"><div class="map_location_name"><h2>찾아오시는길</h2><br></div></div>
+    <div class="map_location_name"><h3>광림아트센터 BBCH홀</h3></div>
+    <div class="map_location">서울 강남구 논현로163길 33</div>
+</div>
+<div class="map_location_underline"></div>
+<div class="kakaoapi">
+    <div id="map" style="width: 52%;height:700px;"></div>
+</div>
+</main>
+<br>
+<footer>
+    <div class="footer-side">
+        <div id="foot-top"> <a href="#" >이용약관 </a><a href="#">단체 문의</a><a href="#" >공연 등록 문의</a><a href="#" >개인정보처리방침</a><a href="#" >청소년보호정책</a>
+        </div>
+        <div id="footer-left">
+            <span> <h4>고객센터 1600-1588(유료)</h4></span>
+            <span> <h4>이메일 picket@ezn.co.kr</h4></span><br>
+            <span> 평일(월~금) 10:00 ~ 17:30</span><br>
+            <span> 주말 및 공휴일 휴무</span>
+        </div>
+
+        <img src="/image/icon/피켓로고검정.png" width="10%">
+        <div>
+            <span>대표자 TeamProject |</span><span> 서울 강남구 풍성로 62길 대우빌딩</span> <span>| 사업자 등록번호 154-15-11562</span ><span>| 통신판매업신고 : 제2024-0001호</span><br>
+            <span>호스팅서비스사업자 : Picket(주) </span><span>&copy;PicketCorp.Allright Reserved</span>
+        </div>
+    </div>
+
+</footer>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9f14da32fd93dc01f17e4ef94b7ed3d1"></script>
+<script>
+    var container = document.getElementById('map');
+
+    var map = new kakao.maps.Map(container, options);
+</script>
+
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9f14da32fd93dc01f17e4ef94b7ed3d1"></script>
+<script>
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        mapOption = {
+            center: new kakao.maps.LatLng(37.52398089473971, 127.02537977514602), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
+
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+
+    // 마커가 표시될 위치입니다
+    var markerPosition  = new kakao.maps.LatLng(37.52398089473971, 127.02537977514602);
+
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        position: markerPosition
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+
+    var iwContent = '<div style="padding:5px;text-align:center;">광림아트센터 BBCH홀<br><a href="https://map.kakao.com/link/map/광림아트센터 BBCH홀,37.52398089473971, 127.02537977514602" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/광림아트센터 BBCH홀,37.52398089473971, 127.02537977514602" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+        iwPosition = new kakao.maps.LatLng(37.52398089473971, 127.02537977514602); //인포윈도우 표시 위치입니다
+
+    // 인포윈도우를 생성합니다
+    var infowindow = new kakao.maps.InfoWindow({
+        position : iwPosition,
+        content : iwContent
+    });
+
+    // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+    infowindow.open(map, marker);
+</script>
+<script>
+    $(document).ready(function($){
+      $(".scroll_move").click(function(event){
+        console.log(".scroll_move");
+        event.preventDefault();
+        $('html.body').animate({scrollTop:$(this.hash).offset().top}, 500);
+      });
+    });
+</script>
+<script th:inline="javascript">
+    const Btn = document.querySelector("#login")
+
+    if(Btn.getAttribute("src") === '/image/icon/로그아웃.png'){
+        Btn.addEventListener("click", function(event){
+            if(confirm("로그아웃 하시겠습니까?")){
+                alert("로그아웃되었습니다.");
+            }
+            else{
+                event.preventDefault();
+            }
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+body{
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #EDECEA;
+}
+#QA{
+  background-color: white;
+  width:50%;
+  height:auto;
+  margin:5% auto 1%;
+  padding: 1% 3% 1% 3%;
+  border:2px solid black;
+  line-height: 1.7;
+}
+h2{
+  display: inline-block;
+  border:1px solid black;
+  padding:1px 20px;
+}
+h5{
+  display: inline;
+  font-size: 15px;
+  margin-top: 2%;
+}
+#QA_type{
+  width:100%;
+  margin-bottom: 2%;
+}
+#name{
+  width:30%;
+  margin:2% 10% 0 1%;
+}
+#tel{
+  width:30%;
+  margin-left: 1%;
+  margin-bottom: 2%;
+}
+#birthday{
+  margin:0 12.5% 0 1%;
+  width:30%;
+}
+#email{
+  width:30%;
+  margin-left:3%;
+}
+#QA_title{
+  width:100%;
+  height:20px;
+  margin-bottom: 2%;
+}
+#QA_comment{
+  height: 170px;
+  resize: none;
+}
+#file{
+  margin:2% 0 2% 1%;
+}
+h6{
+  font-size:12px;
+  line-height: 2;
+}
+#QA_caution{
+  padding:3% 3%;
+  margin:1% 0 3% 0;
+  border:0.2px solid black;
+}
+span{
+  width:20%;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  border: 0.5px solid black;
+  color:black;
+  font-weight: bold;
+}
+#buttons{
+  padding:0;
+  width:30%;
+  margin: 0 auto;
+}
+#QA_submit{
+  padding:1%;
+  margin-right:6%;
+  margin-left:18%;
+}
+#QA_cancel{
+  padding:1%;
+  margin-left:6%;
+  margin-right: 18%;
+  margin-bottom:5%;
+}
+#comment_length{
+  width:auto;
+  border: none;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 1%;
+}
+.counter_others{
+  width:auto;
+  border: none;
+  font-size: 14px;
+  font-weight: 400;
+  position: relative;
+  margin-bottom: 1%;  
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <title>Picket</title>
+</head>
+
+<body>
+<!-- 헤더 -->
+<<header>
+    <nav id="nav1">
+        <a href="/main"><img id="logo" src="/image/icon/로고.png" width="55%" ></a>
+        <ul>
+            <li><a href="/categories/concertlist">콘서트</a></li>
+            <li><a href="/categories/musicallist">뮤지컬</a></li>
+            <li><a href="/categories/actlist">연극</a></li>
+            <li><a href="/categories/classiclist">클래식</a></li>
+            <li><a href="/categories/exhibitlist">전시회</a></li>
+        </ul>
+
+    </nav>
+    <div>
+        <a href="/mypagemain"><img id="my" src="/image/icon/마이페이지.png" width="50" padding="10 0 0 0"></a>
+        <a href="/support"><img id="callcenter" src="/image/icon/물음표.png" width="45" padding="10 0 0 0"></a>
+        <a th:href="${session.customer != null ? '/logout' : '/loginpage'}">
+            <img id="login" th:src="${session.customer != null ? '/image/icon/로그아웃.png' : '/image/icon/로그인.png'}" width="45">
+        </a>
+    </div>
+</header>>
+
+<!-- 메인 카테고리 -->
+<main>
+    <div id="indexv">
+        <video src="../홈피수정.mp4" autoplay muted loop  width=" 100%" height= "100%"></video>
+    </div>
+
+    <div class="test">
+
+
+        <div class="blank"></div>
+        <div id="indexf">
+            <div>
+                <div class="text1">카테고리</div>
+            </div>
+            <div class="iconbox">
+                <div class="icon">
+                    <a href="/categories/musicallist">
+                        <img src="/image/icon/뮤지컬1.png"><br>
+                        <p class="icontext">뮤지컬</p>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="/categories/actlist">
+                        <img src="/image/icon/극장1.png"><br>
+                        <p class="icontext">연극</p>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="/categories/exhibitlist">
+                        <img src="/image/icon/전시회1.png"><br>
+                        <p class="icontext">전시회</p>
+                    </a>
+                </div>
+            </div>
+            <div class="iconbox">
+                <div class="icon">
+                    <a href="/categories/concertlist">
+                        <img src="/image/icon/콘서트1.png"><br>
+                        <p class="icontext">콘서트</p>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="/categories/classiclist">
+                        <img src="/image/icon/피아노1.png"><br>
+                        <p class="icontext">클래식</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  큰 슬라이드 캐러셀 -->
+    <div id="pic">
+        <div class="arrow" id="left">&lang;</div>
+        <div class="arrow" id="right">&rang;</div>
+    </div><br >
+
+    <!-- 작은 슬라이드 무한대 -->
+    <div class="wrap">
+
+        <div class="rolling-list">
+            <ul>
+                <li>
+                    <a href="/classic/JohnWilliams"><div class="image-wrap" ><img src="/image/mainslide/국립.jpg" ></div></a>
+                </li>
+                <li>
+                    <a href="/musical/musical_violin.info"><div class="image-wrap"><img src="/image/mainslide/파가니니.jpg"></div></a>
+                </li>
+                <li>
+                    <a href="/classic/Swan"><div class="image-wrap"><img src="/image/mainslide/백조의 호수.jpg"></div></a>
+                </li>
+                <li>
+                    <a href="/musical/musical_dia.info"><div class="image-wrap"><img src="/image/mainslide/디아길래프.jpg"></div></a>
+                </li>
+                <li>
+                    <a href="/concert/glow"><div class="image-wrap"><img src="/image/mainslide/더글로우2024.jpg"></div></a>
+                </li>
+                <li>
+                    <a href="/act/theaterHerzKlangInfo"><div class="image-wrap"><img src="/image/mainslide/헤르츠클란.jpg"></div></a>
+                </li>
+            </ul>
+            <script src="/js/main2.js"></script>
+        </div>
+    </div>
+
+    <div class="wrap2">
+        <div class="rolling-list2">
+            <ul>
+                <li>
+                    <a href="/concert/hipho"><div class="image-wrap2"><img src="/image/mainslide/HIPHOPPLAYA FESTIVAL 2024.jpg"></div></a>
+                </li>
+                <li>
+                    <a href="/musical/musical_dia.info"><div class="image-wrap2"><img src="/image/mainslide/디아길래프.jpg"></div></a>
+                </li>
+                <li>
+                    <a href="/act/theaterBaskervilles"><div class="image-wrap2"><img src="/image/mainslide/바스커빌.jpg"></div></a>
+                </li>
+                <li>
+                    <a href="/concert/boys"><div class="image-wrap2"><img src="/image/mainslide/보이즈.jpg"></div></a>
+                </li>
+                <li>
+                    <a href="/musical/musical_paris.info"><div class="image-wrap2"><img src="/image/mainslide/2024 뮤지컬 노트르담 드 파리.jpg"></div></a>
+                </li>
+                <li>
+                    <a href="/musical/musical_here.info"><div class="image-wrap2"><img src="/image/mainslide/여기피화당.jpg"></div></a>
+                </li>
+            </ul>
+            <script src="/js/main3.js"></script>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="FAQ">
+        <div id="FAQ-text" ><h1>자주 묻는 질문 <br/>FAQ</h1></div>
+        <input type="checkbox" id="answer01">
+        <label for=answer01> PICKET은?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+        <div>
+            <p>PICKET은 콘서트, 뮤지컬, 전시회 등 다양한 카테고리의 공연들을 예매할 수 있는 티켓 예매 사이트입니다.</p>
+        </div>
+        <input type="checkbox" id="answer02">
+        <label for=answer02> PICK포인트 적립은 언제 확인할 수 있나요?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+        <div>
+            <p>PICK포인트는 주문하신 상품이 모두 출고된 다음 날 적립해 드립니다. 적립 내역은 마이페이지 > 포인트에서 확인하실 수 있습니다.</p>
+        </div>
+        <input type="checkbox" id="answer03">
+        <label for=answer03> 회원가입/탈퇴는 어떻게 하나요?<em><img class="un" src="../image/icon/화살표키.png" width="100%"></em></label>
+        <div>
+            <p>우측 상단 사람 아이콘을 클릭 한 후 회원가입이 가능하며 회원탈퇴는 로그인 후 우측 상단 사람 아이콘 > 회원정보 > 하단 회원탈퇴 버튼을 클릭하시면 탈퇴 할 수 있습니다.</p>
+        </div>
+    </div>
+</main>
+<!-- 풋터 -->
+
+<footer>
+    <div class="footer-side">
+        <div id="foot-top"> <a href="#" >이용약관 </a><a href="#">단체 문의</a><a href="#" >공연 등록 문의</a><a href="#" >개인정보처리방침</a><a href="#" >청소년보호정책</a>
+        </div>
+        <div id="footer-left">
+            <span> <h4>고객센터 1600-1588(유료)</h4></span>
+            <span> <h4>이메일 picket@ezn.co.kr</h4></span><br>
+            <span> 평일(월~금) 10:00 ~ 17:30</span><br>
+            <span> 주말 및 공휴일 휴무</span>
+        </div>
+
+        <img src="/image/icon/피켓로고검정.png" width="10%">
+        <div>
+            <span>대표자 TeamProject |</span><span> 서울 강남구 풍성로 62길 대우빌딩</span> <span>| 사업자 등록번호 154-15-11562</span ><span>| 통신판매업신고 : 제2024-0001호</span><br>
+            <span>호스팅서비스사업자 : Picket(주) </span><span>&copy;PicketCorp.Allright Reserved</span>
+        </div>
+    </div>
+    </footer>
+<script th:inline="javascript">
+window.onload = function() {
+  var message = /*[[${Success} ?: ${Error}]]*/ null;
+    if(message) {
+      alert(message);
+    }
+}
+const Btn = document.querySelector("#login")
+
+if(Btn.getAttribute("src") === '/image/icon/로그아웃.png'){
+    Btn.addEventListener("click", function(event){
+        if(confirm("로그아웃 하시겠습니까?")){
+            alert("로그아웃되었습니다.");
+        } else{
+            event.preventDefault();
+        }
+    });
+}
+</script>
+<script src="/js/main.js"></script>
+
+</body>
+
+</html>

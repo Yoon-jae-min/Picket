@@ -1,0 +1,125 @@
+#modal{
+  display : none;
+  z-index : 1;
+  background-color: rgba(0,0,0,.3);
+  position:fixed;
+  left:0;
+  top: 0;
+  width:100%;
+  height:100%;
+}
+#modal>#content{
+  width:1000px;
+  height: 500px;
+  margin:100px auto;
+  padding:20px;
+  position: relative;
+  background-color:#fff;
+  font-family:'wind';
+  font-size:30px;
+  font-weight:300;
+  text-align:center;
+  border:3px solid;
+}
+#modal .close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:20px;
+  border:0;
+  background-color: #fff;
+}
+#modal .close:hover,
+#modal .close:focus {
+  color : #000;
+  text-decoration: none;
+  cursor :pointer;
+}
+
+#order{
+  padding-bottom: 2%;
+}
+
+#pay{
+  border-bottom:2px solid gray;
+  font-weight: bold;
+
+}
+
+
+.payment_tablehead{
+  background-color:#000000;
+  color:white;
+  font-size:18px;
+}
+.payment_tablehead th{
+
+  margin-top: 2%;
+    height: 50px;
+    font-size:25px;
+}
+.payment_tablebody td {
+  height: 40px;
+  font-size:20px;
+  padding:2% 0;
+}
+
+.payment_th{
+
+}
+
+#pay_count{
+  width:50px;
+}
+
+input[id="pay_count"]::-webkit-inner-spin-button,
+input[id="pay_count"]::-webkit-outer-spin-button {
+	-webkit-appearance: inner-spin-button;
+    opacity: 1;
+}
+
+
+#math{
+  font-family: 'wind';
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.thwidth{
+  width:20px;
+}
+
+.number{
+  font-size: 20px;
+  padding-top:2%;
+}
+
+.payment-btn{
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  width: 12%;
+  height: 10%;
+  border-radius: 8px;
+  font-size: 20px;
+  background-color: orange;
+  border:1px solid orange;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-weight: bold;
+}
+.payment-btn:hover{
+  color:#fff;
+  background-color:#000;
+  font-size:20px;
+  border:1px solid #000;
+}
+
+
+
+
+#pay{
+top:5%;
+font-size: 15px;
+}
+

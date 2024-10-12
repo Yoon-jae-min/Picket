@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/products.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <title>클래식</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+</head>
+<body>
+
+<header>
+    <nav id="nav1">
+        <a href="/main"><img id="logo" src="/image/icon/로고.png" width="55%" ></a>
+        <ul>
+            <li><a href="/categories/concertlist">콘서트</a></li>
+            <li><a href="/categories/musicallist">뮤지컬</a></li>
+            <li><a href="/categories/actlist">연극</a></li>
+            <li><a href="/categories/classiclist">클래식</a></li>
+            <li><a href="/categories/exhibitlist">전시회</a></li>
+        </ul>
+
+    </nav>
+    <div>
+        <a href="/mypagemain"><img id="my" src="/image/icon/마이페이지.png" width="50" padding="10 0 0 0"></a>
+        <a href="/support"><img id="callcenter" src="/image/icon/물음표.png" width="45" padding="10 0 0 0"></a>
+        <a th:href="${session.customer != null ? '/logout' : '/loginpage'}">
+            <img id="login" th:src="${session.customer != null ? '/image/icon/로그아웃.png' : '/image/icon/로그인.png'}" width="45">
+        </a>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <button class="prevBtn">&lt;</button>
+        <div class="item_box">
+            <div class="item"><a href="/classic/Jung"><div class="intext"> <span>정명훈&도쿄필하모닉</span><p>2024.05.09 ~ 2024.05.09 세종문화회관</p></div><img src="/image/category/classic_mini/정명훈&도쿄필하모닉.jpg"></a></div>
+            <div class="item"><a href="/classic/Yuki"><div class="intext"> <h3>유키구라모토</h3><span>내한 25주년 기념</span><p>2024.06.07 ~ 2024.06.07 예술의전당</p></div><img src="/image/category/classic_mini/유키구라모토 내한 25주년 기념.jpg"></a></div>
+            <div class="item"><a href="/classic/OneMu"><div class="intext"> <span>일무</span><p>2024.05.16 ~ 2024.05.19 세종문화회관</p></div><img src="/image/category/classic_mini/일무.jpg"></a></div>
+            <div class="item center"><a href="/classic/GhiBli"><div class="intext"> <span>지브리&히사이시조</span><p>2024.04.20 ~ 2024.04.20 부천아트센터</p></div><img src="/image/category/classic_mini/지브리&히사이시조 디오케스트라-부천.jpg"></a></div>
+            <div class="item"><a href="/classic/Harry"><div class="intext"> <h3>해리포터</h3><span>불사조기사단</span><p>2024.05.11 ~ 2024.05.12 세종문화회관</p></div><img src="/image/category/classic_mini/해리포터와 불사조기사단 인 콘서트.jpg"></a></div>
+            <div class="item"><a href="/classic/Jung"><div class="intext"> <span>정명훈&도쿄필하모닉</span><p>2024.05.09 ~ 2024.05.09 세종문화회관</p></div><img src="/image/category/classic_mini/정명훈&도쿄필하모닉.jpg"></a></div>
+            <div class="item"><a href="/classic/Yuki"><div class="intext"> <h3>유키구라모토</h3><span>내한 25주년 기념</span><p>2024.06.07 ~ 2024.06.07 예술의전당</p></div><img src="/image/category/classic_mini/유키구라모토 내한 25주년 기념.jpg"></a></div>
+        </div>
+        <button class="nextBtn">&gt;</button>
+    </div>
+
+    <h1><i>LIST ALL</i></h1>
+    <div id="list">
+
+        <div class="product"><a href="/classic/LaTraviata"><ul class="goodsname"><span class="truncate">라 트라비아타</span><li>클래식/오페라</li></ul> <div class="time"><span>2024/04/25 ~ 2024/04/28</span></div>
+            <img src="/image/category/classic/라 트라비아타.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>7세 이상 관람 가능</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>세종 문화회관 </li></ul>
+                <ul class="goodscontent"> 관람시간  <li>150분</li></ul>
+                <ul class="goodscontent"> 가격  <li>50000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/classic/Maxim"><ul class="goodsname"><span class="truncate">막심 벤게로프</span><li>클래식/클래식</li></ul> <div class="time"><span>2024/04/09 ~ 2024/04/09</span></div>
+            <img src="/image/category/classic/막심 벤게로프 바이올린 리사이틀.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>초등학생 이상 입장</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>롯데 콘서트홀 </li></ul>
+                <ul class="goodscontent"> 관람시간  <li>100분</li></ul>
+                <ul class="goodscontent"> 가격  <li>50000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/classic/Swan"><ul class="goodsname"><span class="truncate">백조의 호수</span><li>클래식/발레</li></ul> <div class="time"><span>2024/03/30 ~ 2024/03/30</span></div>
+            <img src="/image/category/classic/백조의 호수.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>초등학생 이상 관람가</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>LG 아트센터</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>140분</li></ul>
+                <ul class="goodscontent"> 가격  <li>50000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/classic/JohnWilliams"><ul class="goodsname"><span class="truncate">존 윌리엄스</span><li>클래식/클래식</li></ul> <div class="time"><span>2024.03.23 ~ 2024.03.23</span></div>
+            <img src="/image/category/classic/존 윌리엄스 시네마 콘서트.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>초등학생이상 관람가</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>예술의전당</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>100분</li></ul>
+                <ul class="goodscontent"> 가격  <li>50000원</li></ul>
+            </div>
+        </a>
+        </div>
+
+        <div class="product"><a href="/classic/MidsummerNight"><ul class="goodsname"><span class="truncate">한여름 밤의 꿈</span><li>클래식/클래식</li></ul> <div class="time"><span>2024/04/13 ~ 2024/04/13</span></div>
+            <img src="/image/category/classic/한여름 밤의 꿈.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>초등학생이상 관람가</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>예술의전당</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>150분</li></ul>
+                <ul class="goodscontent"> 가격  <li>50000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/classic/Debussy"><ul class="goodsname"><span class="truncate">드뷔시</span><li>클래식/클래식</li></ul> <div class="time"><span>2024/06/01 ~ 2024/06/01</span></div>
+            <img src="/image/category/classic/클래식 디깅 클럽 - 드뷔시.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>초등학생이상 관람가</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>예술의전당</li></ul>
+                <ul class="goodscontent"> 관람시간  <li>100분</li></ul>
+                <ul class="goodscontent"> 가격  <li>50000원</li></ul>
+            </div>
+        </a>
+        </div>
+        <div class="product"><a href="/classic/GhiBli"><ul class="goodsname"><span class="truncate">지브리&히사이시 조</span><li>클래식/클래식</li></ul> <div class="time"><span>2024/04/20 ~ 2024/04/20</span></div>
+            <img src="/image/category/classic/지브리&히사이시조 디오케스트라-부천.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>초등학생이상 관람가</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>부천 아트센터 </li></ul>
+                <ul class="goodscontent"> 관람시간  <li>120분</li></ul>
+                <ul class="goodscontent"> 가격  <li>50000원</li></ul>
+            </div>
+        </a>
+        </div>
+
+        <div class="product"><a href="/classic/Jung"><ul class="goodsname"><span class="truncate">정명훈&토쿄필하모닉</span><li>클래식/클래식</li></ul> <div class="time"><span>2024/05/09 ~ 2024/05/09</span></div>
+            <img src="/image/category/classic/정명훈&도쿄필하모닉.jpg"/>
+            <div class="between">
+                <ul class="goodscontent"> 등급  <li>초등학생이상 관람가</li></ul>
+                <ul class="goodscontent"> 공연장소  <li>세종 문화회관 </li></ul>
+                <ul class="goodscontent"> 관람시간  <li>120분</li></ul>
+                <ul class="goodscontent"> 가격  <li>50000원</li></ul>
+            </div>
+        </a>
+        </div>
+
+    <div class="product"><a href="/classic/OneMu"><ul class="goodsname"><span class="truncate">일무</span><li>클래식/클래식</li></ul> <div class="time"><span>2024/05/16 ~ 2024/05/19</span></div>
+        <img src="/image/category/classic_info/일무.jpg"/>
+        <div class="between">
+            <ul class="goodscontent"> 등급  <li>7세 이상 관람 가능</li></ul>
+            <ul class="goodscontent"> 공연장소  <li>세종문화회관 대극장 </li></ul>
+            <ul class="goodscontent"> 관람시간  <li> 70분</li></ul>
+            <ul class="goodscontent"> 가격  <li>60000원</li></ul>
+        </div>
+    </a>
+    </div>
+
+    <div class="product"><a href="/classic/Harry"><ul class="goodsname"><span class="truncate">해리포터와 불사조기사단</span><li>클래식/클래식</li></ul> <div class="time"><span>2024/05/11 ~ 2024/05/12</span></div>
+        <img src="/image/category/classic_info/해리포터.jpg"/>
+        <div class="between">
+            <ul class="goodscontent"> 등급  <li>7세 이상 관람 가능</li></ul>
+            <ul class="goodscontent"> 공연장소  <li>세종문화회관 대극장 </li></ul>
+            <ul class="goodscontent"> 관람시간  <li>155분</li></ul>
+            <ul class="goodscontent"> 가격  <li>80000원</li></ul>
+        </div>
+    </a>
+    </div>
+
+    <div class="product"><a href="/classic/Yuki"><ul class="goodsname"><span class="truncate">유키 구라모토 내한 25주년 기념 콘서트</span><li>클래식/클래식</li></ul> <div class="time"><span>2024/06/07 ~ 2024/06/07</span></div>
+        <img src="/image/category/classic_info/유키쿤.jpg"/>
+        <div class="between">
+            <ul class="goodscontent"> 등급  <li>초등학생이상 관람가</li></ul>
+            <ul class="goodscontent"> 공연장소  <li>예술의전당 콘서트홀 </li></ul>
+            <ul class="goodscontent"> 관람시간  <li>110분</li></ul>
+            <ul class="goodscontent"> 가격  <li>70000원</li></ul>
+        </div>
+    </a>
+    </div>
+
+    </div>
+
+
+</main>
+<footer>
+    <div class="footer-side">
+        <div id="foot-top"> <a href="#" >이용약관 </a><a href="#">단체 문의</a><a href="#" >공연 등록 문의</a><a href="#" >개인정보처리방침</a><a href="#" >청소년보호정책</a>
+        </div>
+        <div id="footer-left">
+            <span> <h4>고객센터 1600-1588(유료)</h4></span>
+            <span> <h4>이메일 picket@ezn.co.kr</h4></span><br>
+            <span> 평일(월~금) 10:00 ~ 17:30</span><br>
+            <span> 주말 및 공휴일 휴무</span>
+        </div>
+
+        <img src="/image/icon/피켓로고검정.png" width="10%">
+        <div>
+            <span>대표자 TeamProject |</span><span> 서울 강남구 풍성로 62길 대우빌딩</span> <span>| 사업자 등록번호 154-15-11562</span ><span>| 통신판매업신고 : 제2024-0001호</span><br>
+            <span>호스팅서비스사업자 : Picket(주) </span><span>&copy;PicketCorp.Allright Reserved</span>
+        </div>
+    </div>
+</footer>
+<script th:inline="javascript">
+    const Btn = document.querySelector("#login")
+
+    if(Btn.getAttribute("src") === '/image/icon/로그아웃.png'){
+        Btn.addEventListener("click", function(event){
+            if(confirm("로그아웃 하시겠습니까?")){
+                alert("로그아웃되었습니다.");
+            }
+            else{
+                event.preventDefault();
+            }
+        });
+    }
+</script>
+<script src="../js/carouselTest.js"></script>
+</body>
+</html>

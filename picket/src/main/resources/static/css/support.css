@@ -1,0 +1,370 @@
+/*body{
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+background-color: #EDECEA;
+}
+.clear{
+  clear:both;
+}
+main{
+  width: 100%;
+  height: 1000px;
+}
+#FAQ_head{
+  position: absolute;
+  top:13%;
+  left:41%;
+  right:41%;
+  text-align: center;
+  font-size: 3em;
+  width:18%;
+  border-radius: 20px;
+  margin: 0 auto; 
+  border:10px double black;
+}
+#faq_box{
+  position: absolute;
+  top:25%;
+  width:60%;
+  margin:0 40% 2% 20%;
+  background-color: white;
+  text-align: center;
+  border-collapse: collapse;
+}
+#faq_box td{
+  border: 0.5px solid black;
+}
+
+#faq_searchHead{
+  width: 150px;
+  font-size:1.5em;
+  font-weight: bold;
+  color:black;
+}
+#faq_selector{
+  width:100%;
+  padding:0;
+  border: 0;
+  background-color: white;
+}
+#faq_searchBox{
+  position:relative;
+  width:95%;
+  border:0;
+  background-color: white;
+  text-align: right;
+}
+#faq_searchBox:focus{
+  background-color: white;
+}
+#announcement{
+  font-weight: bold;
+  text-align: left;
+  color:black;
+}
+#faq_searchButton{
+  border:0;
+  background-color: white;
+  font-weight:bold;
+  cursor: pointer;
+}
+#faq_type{
+  position: absolute;
+  top:44%;
+  width:10%;
+  height: 2%;
+  margin:2% 40% 0 20%;
+}
+#faq{
+  position: absolute;
+  top:28%;
+  width: 60%;
+  height: 50%;
+  margin: 3% 40% 0 20%;
+  background-color: white;
+  font-size:1em;
+  font-weight: 400;
+  color: black;
+  text-align: center;
+  border-collapse: collapse;
+}
+#faq td{
+  height: 13%;
+}
+#faq th{
+  background-color: lightgray;
+  height: 20%;
+}
+#faq th:first-child{
+  border-right: none;
+}
+#faq th:last-child{
+  border-left:0.5px solid gray;
+}
+#faq a{
+  text-decoration: none;
+  color:black;
+  font-weight: 500;
+}
+#faq td{
+  border-left: 0.5px solid gray;
+  border-bottom: 0.5px solid gray;
+}
+#faq tr:first-child{
+  border-top:4px double black;
+  border-bottom: 4px double black;
+}
+#faq tr:last-child{
+  border-bottom: 4px double black;
+}
+#faq td:first-child{
+  border-left:none;
+}
+aside{
+  margin-left:1%;
+}
+#left_sidebar{
+  position: fixed;
+  top:30%;
+  width:10%;
+  height: 30%;
+  border:4px solid black;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+}
+#left_sidebar h3{
+  margin:5% 0 5% 0;
+}
+#left_sidebar h4{
+  margin:0;
+}
+#left_sidebar ul{
+  margin: 1% auto 0% auto;
+  list-style: none;
+  padding: 0;
+}
+#left_sidebar a{
+  line-height: 1.7;
+  color:black;
+  font-size:1.1rem;
+  text-decoration: none;
+}
+#PN{
+  width:10.2%;
+  height: 6%;
+  text-align: center;
+  font-size:1rem;
+  position: fixed;
+  top:54%;
+  margin:0.5% 0 0 0;
+  border-top:4px solid black;
+}
+#one{
+  display: block;
+  padding: 0;
+  position: fixed;
+  width:10%;
+  height: 6%;
+  text-align: center;
+  font-size: 1.5rem;
+  top:62%;
+  border:4px solid black;
+}
+#one h6{
+  position: relative;
+  padding: auto;
+  margin:10% 0 10% 0;
+}
+#one h6>a{
+  font-size:1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  padding:2rem 4.2rem;
+}
+.table_second{
+  border-left:1px solid black;
+}
+#more{
+  width:40%;
+  margin:0 auto;
+  font-size:17px;
+  text-align: center;
+  position: relative;
+  top:75%;
+}
+#more>a{
+  color:black;
+  margin:0 0.7% 0 0.7%;
+  text-decoration: none;
+}*/
+
+*{
+  padding:0;
+  margin:0
+}
+body{
+  background-color: rgb(230,230,230);
+}
+main{
+  background-color: rgb(230, 230, 230);
+  padding-bottom: 50px;
+}
+#QAcenter {
+  font-family: 'gotham';
+  font-weight: 900;
+  background-color:#bcbcbc;
+  color: #fff ;
+  padding: 4%;
+  font-size: 60px;
+  text-align: center;
+  line-height: 50px;
+  margin-bottom: 50px;
+}
+
+.container{
+  width: 120px;
+  margin-top: 15px;
+}
+
+.packaging{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.packaging div{
+  margin : 40px ;
+
+  border: 1px solid;
+  border-color: rgb(200, 200, 200);
+  background-color: #fff;
+  border-radius: 5px;
+  width: 300px;
+  height: auto;
+  text-align: center;
+
+}
+
+.packaging p{
+  margin-top: 5px;
+  margin-bottom : 10%;
+  font-family: 'wind';
+  font-weight: 900;
+  text-align: center;
+  font-size: 25px;
+  color: #121212;
+}
+.packaging div:hover{
+  background-color:  #e6f0ff;
+  border-color: #5992fc;
+  box-shadow: 0px 0px 0px 1px #5992fc inset;
+  transition: 1s all;
+}
+
+
+
+
+
+.aa{
+  /* display: none; */
+  margin-left: 460px;
+  width: 1000px;
+  height: 0px;
+  opacity: 0;
+  margin-left: 300px;
+  width: 1300px;
+  overflow: hidden;
+  transition: 1s all;
+}
+
+
+
+
+.FAQ{
+  width: 1300px;
+  font-family: 'wind';
+  font-weight: 500;
+  background-color: #ffffff;
+  padding-bottom: 1%;
+}
+#FAQ-text{
+  font-family: 'sdgothic';
+  font-weight: 300;
+  padding-top: 11% ;
+  margin: 5% 5% 1% 5% ;
+  font-size: 60px;
+  color: #000000;
+  text-align: center;
+}
+
+ input[id *="answer"]{
+  display: none;
+}
+
+ input[id *="answer"] + label{
+  font-family: 'sdgothic';
+  font-weight: 900;
+  left: 3%;
+  width: 91%;
+  display: block;
+  padding:40px 20px 20px 20px ;
+  border-top:1px solid #d3d3d3;
+  color: black;
+  font-weight:900;
+  cursor:pointer;
+  position:relative;
+  /* 화살표 백그라운드 이미지*/
+  font-size: 30px;
+  height: 50px;
+}
+
+input[id="answer01"] + label {
+  border-top: none;
+}
+
+/* 화살표 이미지 */
+ input[id *="answer"] + label em {
+  position: absolute;
+  top: 47%;
+  right: 25px;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  display:inline-block;
+
+  opacity: 0.5;
+
+  /* 화살표 백그라운드 이미지 */
+  background: url("화살표키.png") 0 0 no-repeat;
+  background-size: 100% auto;
+}
+
+input[id *="answer"] + label + div {
+text-align: center;
+max-height: 0;
+transition: all .50s;
+overflow: hidden;
+background: #ffffff;
+}
+
+input[id *="answer"]:checked + label + div {
+margin-bottom: 20px;
+}
+
+
+input[id *="answer"] + label + div p{
+font-size: 20px;
+display: inline-block;
+padding:20px;
+padding-bottom: 50px
+  }
+input[id *="answer"]:checked + label +div{max-height: 100px;}
+input[id *="answer"]:checked + label em{background-position: 0 -30px;}
+
+
+.un{
+ width:35px;
+}
