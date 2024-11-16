@@ -24,13 +24,11 @@
         </ul>
 
     </nav>
-    <div>
-        <a href="/mypagemain"><img id="my" src="/image/icon/마이페이지.png" width="50" padding="10 0 0 0"></a>
-        <a href="/support"><img id="callcenter" src="/image/icon/물음표.png" width="45" padding="10 0 0 0"></a>
-        <a th:href="${session.customer != null ? '/logout' : '/loginpage'}">
-            <img id="login" th:src="${session.customer != null ? '/image/icon/로그아웃.png' : '/image/icon/로그인.png'}" width="45">
-        </a>
-    </div>
+    <a href="/mypagemain"><img class="header_right" id="my" src="/image/icon/마이페이지.png"></a>
+    <a href="/support"><img class="header_right" id="callcenter" src="/image/icon/물음표.png"></a>
+    <a th:href="${session.customer != null ? '/logout' : '/loginpage'}">
+        <img class="header_right" id="login" th:src="${session.customer != null ? '/image/icon/로그아웃.png' : '/image/icon/로그인.png'}">
+    </a>
 </header>>
 
 <!-- 메인 카테고리 -->

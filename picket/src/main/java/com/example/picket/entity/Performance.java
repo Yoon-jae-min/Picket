@@ -17,8 +17,8 @@ public class Performance {
     private String title;
     @Column(nullable = false)
     private String place;
-    @Column(nullable = false) // 공연기간
-    private String dates;
+    @Column(nullable = false)
+    private String dates; // 공연기간
     @Column(nullable = true)
     private String detailCategory;
     @Column(nullable = true)
@@ -27,6 +27,8 @@ public class Performance {
     //추가 컬럼
     @Column(nullable = true)
     private String imgUrl;
+    @Column(nullable = true)
+    private String carouselUrl;
     @Column(nullable = true)
     private Long runtime;
     @Column(nullable = true)
@@ -38,9 +40,8 @@ public class Performance {
     @Column(nullable = true)
     private String url;
 
-
     public PerformanceForm toForm(){
-        return new PerformanceForm(this.title, this.place, this.dates, this.detailCategory, this.price, this.imgUrl, this.runtime
-        , this.ageGrade, this.category, this.url);
+        return new PerformanceForm(title, place, dates, detailCategory, price, imgUrl, runtime, ageGrade, category,
+                carouselUrl , url);
     }
 }

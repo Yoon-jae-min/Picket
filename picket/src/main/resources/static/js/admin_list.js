@@ -1,3 +1,4 @@
+//list업데이트
 function renderList(category){
     fetch("http://localhost:8080/adminList",{
         method: "POST",
@@ -35,12 +36,20 @@ function updateList(data) {
         contentDiv.appendChild(textContainerDiv);
         listContainer.appendChild(contentDiv);
     });
+
+    const contents = document.querySelectorAll(".content");
+    contents.forEach((content) => {
+        content.addEventListener("click", function(){
+            const titleText = content.querySelector('.titleBox').innerText;
+            renderInfo(titleText);
+        });
+    });
 }
 
 const selectBox = document.querySelector('.selectBox');
 
-selectBox.addEventListener('change', async function(){
-    await renderList(selectBox.value);
+selectBox.addEventListener('change', function(){
+    renderList(selectBox.value);
 });
 
 
@@ -49,11 +58,11 @@ function renderInfo(titleText){
     fetch("http://localhost:8080/adminInfo",{
         method: "POST",
         headers:{
-            'Content-Type':'application/json'
+            "Content-Type":"application/json",
         },
         body: JSON.stringify({
-            titleText: titleText
-        })
+            titleText: titleText,
+        }),
     }).then(response => {
         if (response.ok) {
             window.location.href = "/adminInfo"; // 성공 시 페이지 이동
@@ -66,8 +75,8 @@ function renderInfo(titleText){
 const contents = document.querySelectorAll(".content");
 
 contents.forEach((content) => {
-    content.addEventListener("click", async function(){
+    content.addEventListener("click", function(){
         const titleText = content.querySelector('.titleBox').innerText;
-        await renderInfo(titleText);
+        renderInfo(titleText);
     });
 });

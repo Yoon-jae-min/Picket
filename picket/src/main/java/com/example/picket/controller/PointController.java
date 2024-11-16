@@ -55,6 +55,7 @@ public class PointController {
         return "/mypage/pointlist";
     }
 
+    //포인트 충전
     @PostMapping("/ChargePoint")
     public String ChargePoint(Long chargeAmount, HttpSession session, RedirectAttributes rttr){
         Customer currentUser = (Customer) session.getAttribute("customer");

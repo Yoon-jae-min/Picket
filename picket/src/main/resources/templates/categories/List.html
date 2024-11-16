@@ -18,36 +18,38 @@
   <nav id="nav1">
     <a href="/main"><img id="logo" src="/image/icon/로고.png" width="55%" ></a>
     <ul>
-      <li><a href="/categories/concertlist">콘서트</a></li>
-      <li><a href="/categories/musicallist">뮤지컬</a></li>
-      <li><a href="/categories/actlist">연극</a></li>
-      <li><a href="/categories/classiclist">클래식</a></li>
-      <li><a href="/categories/exhibitlist">전시회</a></li>
+      <li class="header_category" th:classappend="${category.equals('concert')} ? 'selected'"><a href="/categories/concertlist">콘서트</a></li>
+      <li class="header_category" th:classappend="${category.equals('musical')} ? 'selected'"><a href="/categories/musicallist">뮤지컬</a></li>
+      <li class="header_category" th:classappend="${category.equals('act')} ? 'selected'"><a href="/categories/actlist" >연극</a></li>
+      <li class="header_category" th:classappend="${category.equals('classic')} ? 'selected'"><a href="/categories/classiclist">클래식</a></li>
+      <li class="header_category" th:classappend="${category.equals('exhibit')} ? 'selected'"><a href="/categories/exhibitlist">전시회</a></li>
     </ul>
 
   </nav>
-  <div>
-    <a href="/mypagemain"><img id="my" src="/image/icon/마이페이지.png" width="50" padding="10 0 0 0"></a>
-    <a href="/support"><img id="callcenter" src="/image/icon/물음표.png" width="45" padding="10 0 0 0"></a>
-    <a th:href="${session.customer != null ? '/logout' : '/loginpage'}">
-      <img id="login" th:src="${session.customer != null ? '/image/icon/로그아웃.png' : '/image/icon/로그인.png'}" width="45">
-    </a>
-  </div>
+<!--  <div>-->
+  <a href="/mypagemain"><img class="header_right" id="my" src="/image/icon/마이페이지.png"></a>
+  <a href="/support"><img class="header_right" id="callcenter" src="/image/icon/물음표.png"></a>
+  <a th:href="${session.customer != null ? '/logout' : '/loginpage'}">
+    <img class="header_right" id="login" th:src="${session.customer != null ? '/image/icon/로그아웃.png' : '/image/icon/로그인.png'}">
+  </a>
+<!--  </div>-->
 </header>
+<img class="scrollUpButton">
 <main>
-
+  <button class="prevBtn">&lt;</button>
+  <button class="nextBtn">&gt;</button>
   <div class="container">
-    <button class="prevBtn">&lt;</button>
     <div class="item_box">
-      <div class="item"><a href="/act/theaterHerzKlangInfo"><div class="intext"> <span>헤르츠클란</span><p>2024.01.16 ~ 2024.04.07 링크아트센터드림</p> </div><img src="/image/category/act_mini/연극 〈헤르츠클란〉.jpg"></a></div>
-      <div class="item"><a href="/act/theaterBlossom"><div class="intext"> <span>벚꽃동산</span><p>2024.06.04 ~ 2024.07.07 LG아트센터 서울</p> </div><img src="/image/category/act_mini/사이먼 스톤 연출 ‘벚꽃동산’.jpg"></a></div>
-      <div class="item"><a href="/act/theaterHandSpan"><div class="intext"> <span>한뼘사이</span><p>2021.03.19 ~ 2024.05.31 라온아트홀</p> </div><img src="/image/category/act_mini/연극 한뼘사이.jpg"></a></div>
-      <div class="item center"><a href="/act/theaterBaskervilles"><div class="intext"> <h3>바스커빌</h3><span>셜록홈즈 미스터리</span><p>2024/04/05 ~ 2024/04/28 예그린씨어터</p></div><img src="/image/category/act_mini/연극 〈바스커빌 셜록홈즈 미스터리〉.jpg"></a></div>
-      <div class="item"><a href="/act/theaterCloserInfo"><div class="intext"> <span>클로저</span><p>2024.04.23 ~ 2024.07.14 플러스씨어터</p> </div><img src="/image/category/act_mini/연극 〈클로저〉.jpg"></a></div>
-      <div class="item"><a href="/act/theaterHerzKlangInfo"><div class="intext"> <span>헤르츠클란</span><p>2024.01.16 ~ 2024.04.07 링크아트센터드림</p> </div><img src="/image/category/act_mini/연극 〈헤르츠클란〉.jpg"></a></div>
-      <div class="item"><a href="#"><div class="intext"> <span>벚꽃동산</span><p>2024.06.04 ~ 2024.07.07 LG아트센터 서울</p> </div><img src="/image/category/act_mini/사이먼 스톤 연출 ‘벚꽃동산’.jpg"></a></div>
+      <div class="item" th:each="carousel, itemindex : ${carousels}" th:classappend="${itemindex.index == 3} ? 'center'">
+        <div class="GotoInfo">
+          <div class="intext">
+            <span class="carouselTitle" th:text="${carousel.getTitle()}"></span>
+            <p th:text="${carousel.getDates()} + ' ' + ${carousel.getPlace()}"></p>
+          </div>
+          <img th:src="${carousel.getCarouselImg()}">
+        </div>
+      </div>
     </div>
-    <button class="nextBtn">&gt;</button>
   </div>
 
 
@@ -59,19 +61,22 @@
 
     <div class="product" th:each="performance : ${performanceList}">
       <div class="productSub">
-        <ul class="goodsname">
-          <span class="truncate" th:text="${performance.getTitle()}"></span>
-          <li th:text="${performance.getDetailCategory()}"></li>
-        </ul>
-        <div class="time">
-          <span th:text="${performance.getDates()}"></span>
-        </div>
+<!--        <ul class="goodsname">-->
+<!--          <span class="truncate" th:text="${performance.getTitle()}"></span>-->
+<!--          <li th:text="${performance.getDetailCategory()}"></li>-->
+<!--        </ul>-->
+<!--        <div class="time">-->
+<!--          <span th:text="${performance.getDates()}"></span>-->
+<!--        </div>-->
         <img th:src="${performance.getImgUrl()}"/>
         <div class="between">
-          <ul class="goodscontent"> 등급  <li th:text="${performance.getAgeGrade()}"></li></ul>
-          <ul class="goodscontent"> 공연장소  <li th:text="${performance.getPlace()}"></li></ul>
-          <ul class="goodscontent"> 관람시간  <li th:text="${performance.getRuntime()} + '분'"></li></ul>
-          <ul class="goodscontent"> 가격  <li th:text="${performance.getPrice()} + '원'"></li></ul>
+<!--          <ul class="goodscontent"> 등급  <li th:text="${performance.getAgeGrade()}"></li></ul>-->
+<!--          <ul class="goodscontent"> 공연장소  <li th:text="${performance.getPlace()}"></li></ul>-->
+<!--          <ul class="goodscontent"> 관람시간  <li th:text="${performance.getRuntime()} + '분'"></li></ul>-->
+<!--          <ul class="goodscontent"> 가격  <li th:text="${performance.getPrice()} + '원'"></li></ul>-->
+          <ul class="goodscontent_title" th:text="${performance.getTitle()}"></ul>
+          <ul class="goodscontent" th:text="${performance.getPrice()} + '원'"></ul>
+
         </div>
       </div>
     </div>
@@ -113,6 +118,8 @@
     });
   }
 </script>
-<script src="../js/carouselTest.js"></script>
+<script src="/js/carouselTest.js"></script>
+<script src="/js/client_List.js"></script>
+<script src="/js/scrollUp.js"></script>
 </body>
 </html>

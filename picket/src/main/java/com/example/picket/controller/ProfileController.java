@@ -71,7 +71,7 @@ public class ProfileController {
 
         return "/mypage/mypagemain";
     }
-    /* 찜목록 */
+    /* 찜목록 페이지 */
     @GetMapping("/wishlist")
     public String gotowishlist(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -101,6 +101,8 @@ public class ProfileController {
 
         return "/mypage/wishlist";
     }
+
+    //찜목록 제거
     @PostMapping("/wishlist/delete")
     public ResponseEntity<Void> wishlistDelete(HttpServletRequest request, @RequestBody WishListTitleRequest wishListTitleRequest){
         HttpSession session = request.getSession();

@@ -175,10 +175,14 @@ main{
     text-align:right;
   }
   .mypagemain_refundbutton{
-    margin: 40px 0 0 1400px;
+    /*margin: 40px 0 0 1400px;*/
   }
 
   .mypagemain_buttons{
+    position: absolute;
+    right: 20%;
+    margin-top: 5px;
+
     font-family: 'wind';
     font-weight: 500;
     padding: 10px 20px;

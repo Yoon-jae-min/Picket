@@ -6,27 +6,53 @@
     <title>Title</title>
 </head>
 <body>
-        <article class="container">
-            <div class="mainBox">
-                <div class="mainInfoBox">
-                    <p class="infoDetailCategoryBox" th:text="${performanceInfo.detailCategory}"></p>
-                    <p class="infoTitleBox" th:text="${performanceInfo.title}"></p>
-                    <img class="infoImgBox" src="/image/category/act_info/musicalTheaterCarol/musicalTheaterCarol_detail_main.jpg"/>
+    <article class="container">
+        <div class="mainBox">
+            <div class="mainInfoBox">
+                <a href="/adminList">리스트로....</a>
+                <p class="infoDetailCategoryBox" th:text="${session.performanceInfo.detailCategory}"></p>
+                <p class="infoTitleBox" th:text="${session.performanceInfo.title}"></p>
+                <img class="infoImgBox" th:src="${session.performanceInfo.imgUrl}"/>
+            </div>
+            <div class="descriptionInfoBox">
+                <p class="infoPerformanceDateBox" th:text="${session.performanceInfo.dates}"></p>
+                <p class="infoPerformancePlaceBox" th:text="${session.performanceInfo.place}"></p>
+                <p class="infoPerformancePriceBox" th:text="${session.performanceInfo.price == 0 ? '-' : session.performanceInfo.price + '원'}"></p>
+                <p class="infoPerformanceRuntimeBox" th:text="${session.performanceInfo.runtime == 0 ? '-' : session.performanceInfo.runtime + '분'}"></p>
+                <p class="infoPerformanceAgegradeBox" th:text="${session.performanceInfo.ageGrade}"></p>
+                <button class="deleteButton">삭제</button>
+            </div>
+        </div>
+        <div class="subBox" th:if="${session.detailInfoCasting} or ${session.detailInfoDiscount} or ${session.detailInfoNotice} or ${session.detailInfoSchedule}">
+            <div class="noticeBox" th:if="${session.detailInfoNotice}">
+                <h2 class="detailTitle">Notice</h2>
+                <div class="imgBox" th:each="noticeImg : ${session.detailInfoNotice}">
+                    <img th:src="${noticeImg.getUrl()}">
                 </div>
-                <div class="descriptionInfoBox">
-                    <p class="infoPerformanceDateBox" th:text="${performanceInfo.dates}"></p>
-                    <p class="infoPerformancePlaceBox" th:text="${performanceInfo.place}"></p>
-                    <p class="infoPerformancePriceBox" th:text="${performanceInfo.price} + '원'"></p>
-                    <p class="infoPerformanceRuntimeBox" th:text="${performanceInfo.runtime} + '분'"></p>
-                    <p class="infoPerformanceAgegradeBox" th:text="${performanceInfo.ageGrade}"></p>
+                <hr class="detailDivLine">
+            </div>
+            <div class="castingBox" th:if="${session.detailInfoCasting}">
+                <h2 class="detailTitle">Casting</h2>
+                <div class="imgBox" th:each="castingImg : ${session.detailInfoCasting}">
+                    <img th:src="${castingImg.getUrl()}">
+                </div>
+                <hr class="detailDivLine">
+            </div>
+            <div class="scheduleBox" th:if="${session.detailInfoSchedule}">
+                <h2 class="detailTitle">Schedule</h2>
+                <div class="imgBox" th:each="scheduleImg : ${session.detailInfoSchedule}">
+                    <img th:src="${scheduleImg.getUrl()}">
+                </div>
+                <hr class="detailDivLine">
+            </div>
+            <div class="discountBox" th:if="${session.detailInfoDiscount}">
+                <h2 class="detailTitle">Discount</h2>
+                <div class="imgBox" th:each="discountImg : ${session.detailInfoDiscount}">
+                    <img th:src="${discountImg.getUrl()}">
                 </div>
             </div>
-            <hr>
-            <div class="subBox">
-
-            </div>
-
-
-        </article>
+        </div>
+    </article>
+    <script src="/js/admin_Info.js"></script>
 </body>
 </html>

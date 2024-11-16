@@ -12,6 +12,9 @@ public interface PerformanceRepository extends JpaRepository<Performance, String
     @Query("select p from Performance p where p.category = :category")
     List<Performance> findByCategory(@Param("category") String category);
 
-    @Query("select p from Performance p where p.title = :title")
-    Performance findByInfo(@Param("title") String titleText);
+//    @Query("select p from Performance p where p.title = :title")
+//    Performance findByInfo(@Param("title") String title);
+
+//    @Query("delete from Performance where title = :title")
+//    void deleteByInfo(@Param("title") String title);
 }

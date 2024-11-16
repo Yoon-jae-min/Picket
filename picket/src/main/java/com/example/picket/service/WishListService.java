@@ -36,10 +36,10 @@ public class WishListService {
         }
 
         if(titleCheck.get()){
-            model.addAttribute("imgUrl", "../image/info/heart_red.png");
+            model.addAttribute("imgUrl", "/image/info/heart_red.png");
         }
         else {
-            model.addAttribute("imgUrl", "../image/info/heart.png");
+            model.addAttribute("imgUrl", "/image/info/heart.png");
         }
     }
 

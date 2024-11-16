@@ -15,6 +15,7 @@
             <option value="classic">클래식</option>
             <option value="exhibit">전시회</option>
         </select>
+        <a href="/adminWrite" class="addPageButton">추가</a>
         <div class="listContainer" th:if="${performanceList != null}">
             <div class="content" th:each="performance : ${performanceList}">
                 <img class="listImg" th:src="${performance.getImgUrl()}">

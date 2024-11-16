@@ -12,17 +12,17 @@ function moveCarousel(direct){
             isAnimating = true;
             let items = document.querySelectorAll('.item');
 
-            if(direct == "prev"){
+            if(direct === "prev"){
                 let appendItem = items[items.length - 3].cloneNode(true);
 
                 itemBox.style.transform = "translateX(" + (items[0].offsetWidth + 30) + "px)";
                 items.forEach((item) => {
-                    if(item == items[items.length - 5]) item.classList.add("center");
+                    if(item === items[items.length - 5]) item.classList.add("center");
                     else item.classList.remove("center");
                 })
 
                 items.forEach((item, index) => {
-                    item.style.opacity = (index == 0 || index == 4) ? "0.5" : "1";
+                    item.style.opacity = (index === 0 || index === 4) ? "0.5" : "1";
                 })
 
                 setTimeout(() => {
@@ -37,18 +37,18 @@ function moveCarousel(direct){
                     isAnimating = false;
                 }, 400);
             }
-            else if(direct == "next"){
+            else if(direct === "next"){
                 let appendItem = items[2].cloneNode(true);
 
                 itemBox.style.transform = "translateX(" + -(items[0].offsetWidth + 30) + "px)";
 
                 items.forEach((item) => {
-                    if(item == items[items.length - 3]) item.classList.add("center");
+                    if(item === items[items.length - 3]) item.classList.add("center");
                     else item.classList.remove("center");
                 })
 
                 items.forEach((item, index) => {
-                    item.style.opacity = (index == 2 || index == 6) ? "0.5" : "1";
+                    item.style.opacity = (index === 2 || index === 6) ? "0.5" : "1";
                 })
 
                 setTimeout(() => {
@@ -63,10 +63,10 @@ function moveCarousel(direct){
                     isAnimating = false;
                 }, 400);
             }
-            else if(direct == "auto"){
+            else if(direct === "auto"){
                 items.forEach((item) => {
                     item.style.transition = "all 1s";
-                    if(item == items[items.length - 3]) item.classList.add("center");
+                    if(item === items[items.length - 3]) item.classList.add("center");
                     else item.classList.remove("center");
                 })
 
@@ -77,7 +77,7 @@ function moveCarousel(direct){
                 itemBox.style.transform = "translateX(" + -(items[0].offsetWidth + 30) + "px)";
 
                 items.forEach((item, index) => {
-                    item.style.opacity = (index == 2 || index == 6) ? "0.5" : "1";
+                    item.style.opacity = (index === 2 || index === 6) ? "0.5" : "1";
                 })
 
                 setTimeout(() => {
