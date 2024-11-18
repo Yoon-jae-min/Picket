@@ -9,24 +9,34 @@
     <article class="container">
         <div class="mainBox">
             <div class="mainInfoBox">
-                <label for="categorySelect"></label>
+                <a href="/adminList">리스트로....</a>
+                <button type="button" class="enrollButton">등록하기</button><br>
+                <label for="categorySelect">카테고리</label>
                 <select class="infoCategoryBox" id="categorySelect">
+                    <option value="null_value" selected disabled hidden>선택해주세요</option>
                     <option value="act">연극</option>
                     <option value="classic">클래식</option>
                     <option value="concert">콘서트</option>
                     <option value="exhibit">전시회</option>
                     <option value="musical">뮤지컬</option>
-                </select>
+                </select><br>
                 <label for="detailCategoryInput">세부 카테고리</label>
-                <input class="infoDetailCategoryBox" id="detailCategoryInput" type="text" placeholder="카테고리"/>
+                <input class="infoDetailCategoryBox" id="detailCategoryInput" type="text" placeholder="카테고리"/><br>
                 <label for="titleInput">제목</label>
-                <input class="infoTitleBox" id="titleInput" type="text" placeholder="제목"/>
-                <input type="file" id="infoMain">
+                <input class="infoTitleBox" id="titleInput" type="text" placeholder="제목"/><br>
+                <label for="infoMain">메인 이미지</label> <input type="file" id="infoMain"><br>
+                <label for="carousel">캐러셀 이미지</label>
                 <input type="file" id="carousel">
             </div>
             <div class="descriptionInfoBox">
-                <label for="dateInput">기간</label>
-                <input class="infoPerformanceDateBox" id="dateInput" type="text" placeholder="기간"/><br>
+                <label for="openRunBox">Open Run</label>
+                <input type="checkbox" id="openRunBox"><br>
+                <div class="dateBox">
+                    <label for="startDate">시작 날짜</label>
+                    <input type="date" id="startDate"><br>
+                    <label for="endDate">종료 날짜</label>
+                    <input type="date" id="endDate">
+                </div>
                 <label for="placeInput">장소</label>
                 <input class="infoPerformancePlaceBox" id="placeInput" type="text" placeholder="장소"/><br>
                 <label for="priceInput">가격</label>
@@ -38,7 +48,6 @@
             </div>
         </div>
         <div class="infoExplainBox">
-            <button type="button" class="enrollButton">등록하기</button>
             <p class="addNotice">※여러개 첨부 시 순서대로 넣어주세요※</p>
             <button class="addFileButton" type="button"><img src="/image/icon/addFile.png"></button>
             <button class="deleteFileButton" type="button"><img src="/image/icon/deleteFile.png"></button>
@@ -46,7 +55,6 @@
         <div class="subBox">
 
         </div>
-        <a href="/adminList">리스트로....</a>
     </article>
 
     <script defer src="/js/admin_Write.js"></script>

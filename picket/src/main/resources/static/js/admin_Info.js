@@ -1,3 +1,18 @@
+//버튼
+const deleteButton = document.querySelector(".deleteButton");
+
+//이벤트 리스너
+deleteButton.addEventListener('click', function(){
+    const deleteResult = confirm("정말 삭제하시겠습니까?");
+    const title = document.querySelector(".infoTitleBox").textContent;
+
+    if(deleteResult){
+        deleteInfo(title);
+    }
+});
+
+//메소드
+//공연 정보 삭제
 function deleteInfo(title){
     fetch('http://localhost:8080/deleteInfo',{
         method: "POST",
@@ -16,9 +31,3 @@ function deleteInfo(title){
     });
 }
 
-const buttonBox = document.querySelector(".deleteButton");
-
-buttonBox.addEventListener('click', function(){
-    title = document.querySelector(".infoTitleBox").textContent;
-    deleteInfo(title);
-});

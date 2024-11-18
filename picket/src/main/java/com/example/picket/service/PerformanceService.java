@@ -168,19 +168,7 @@ public class  PerformanceService {
     public void addPerformInfo(InfoAddRequest infoAddRequest) throws IOException {
         Long price = Long.parseLong(infoAddRequest.getPrice());
         Long runTime = Long.parseLong(infoAddRequest.getRunTime());
-        String detailCategory = null;
-
-        if(infoAddRequest.getCategory().equals("act")){
-            detailCategory = "연극 > " + infoAddRequest.getDetailCategory();
-        } else if(infoAddRequest.getCategory().equals("classic")) {
-            detailCategory = "클래식 > " + infoAddRequest.getDetailCategory();
-        } else if(infoAddRequest.getCategory().equals("concert")){
-            detailCategory = "콘서트 > " + infoAddRequest.getDetailCategory();
-        } else if(infoAddRequest.getCategory().equals("exhibit")){
-            detailCategory = "전시회 > " + infoAddRequest.getDetailCategory();
-        } else if(infoAddRequest.getCategory().equals("musical")){
-            detailCategory = "뮤지컬 > " + infoAddRequest.getDetailCategory();
-        }
+        String detailCategory = getDetailCategory(infoAddRequest);
 
         //mainImg 저장
         File directoryMain = new File(uploadDir + File.separator + "image" + File.separator + "category"
@@ -206,6 +194,8 @@ public class  PerformanceService {
 
         //공연 테이블 insert
         performanceRepository.save(performance);
+
+        System.out.println(infoAddRequest.getInfoExplainImgArr().length);
 
         //infoImg 저장
         File directoryInfo = new File(uploadDir + File.separator + "image" + File.separator + "category"
@@ -238,6 +228,26 @@ public class  PerformanceService {
                 detailNum = 1;
             }
         }
+
+    }
+
+    //상세 카테고리 생성
+    private static String getDetailCategory(InfoAddRequest infoAddRequest) {
+        String detailCategory = "";
+
+        switch (infoAddRequest.getCategory()) {
+            case "act" ->
+                    detailCategory = infoAddRequest.getDetailCategory().isEmpty() ? "연극 > 연극" : "연극 > " + infoAddRequest.getDetailCategory();
+            case "classic" ->
+                    detailCategory = infoAddRequest.getDetailCategory().isEmpty() ? "클래식 > 클래식" : "클래식 > " + infoAddRequest.getDetailCategory();
+            case "concert" ->
+                    detailCategory = infoAddRequest.getDetailCategory().isEmpty() ? "콘서트 > 콘서트" : "콘서트 > " + infoAddRequest.getDetailCategory();
+            case "exhibit" ->
+                    detailCategory = infoAddRequest.getDetailCategory().isEmpty() ? "전시회 > 전시회" : "전시회 > " + infoAddRequest.getDetailCategory();
+            case "musical" ->
+                    detailCategory = infoAddRequest.getDetailCategory().isEmpty() ? "뮤지컬 > 뮤지컬" : "뮤지컬 > " + infoAddRequest.getDetailCategory();
+        }
+        return detailCategory;
     }
 
 }

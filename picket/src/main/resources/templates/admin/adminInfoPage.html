@@ -20,7 +20,7 @@
                 <p class="infoPerformancePriceBox" th:text="${session.performanceInfo.price == 0 ? '-' : session.performanceInfo.price + '원'}"></p>
                 <p class="infoPerformanceRuntimeBox" th:text="${session.performanceInfo.runtime == 0 ? '-' : session.performanceInfo.runtime + '분'}"></p>
                 <p class="infoPerformanceAgegradeBox" th:text="${session.performanceInfo.ageGrade}"></p>
-                <button class="deleteButton">삭제</button>
+                <button type="button" class="deleteButton">삭제하기</button>
             </div>
         </div>
         <div class="subBox" th:if="${session.detailInfoCasting} or ${session.detailInfoDiscount} or ${session.detailInfoNotice} or ${session.detailInfoSchedule}">

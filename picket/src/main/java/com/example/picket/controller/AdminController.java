@@ -4,7 +4,6 @@ import com.example.picket.dto.InfoAddRequest;
 import com.example.picket.dto.InfoResponse;
 import com.example.picket.dto.PerformanceForm;
 import com.example.picket.service.PerformanceService;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -44,29 +43,7 @@ public class AdminController {
     //관리자 공연 상제 정보 조회
     @PostMapping("/adminInfo")
     public String adminInfo(@RequestBody Map<String, Object> requestValue, HttpSession session){
-        List<InfoResponse> detailInfoNotice = performanceService.findInfoImg(requestValue.get("titleText").toString(), "notice");
-        List<InfoResponse> detailInfoCasting = performanceService.findInfoImg(requestValue.get("titleText").toString(), "casting");
-        List<InfoResponse> detailInfoDiscount = performanceService.findInfoImg(requestValue.get("titleText").toString(), "discount");
-        List<InfoResponse> detailInfoSchedule = performanceService.findInfoImg(requestValue.get("titleText").toString(), "schedule");
-
-        session.removeAttribute("detailInfoNotice");
-        session.removeAttribute("detailInfoCasting");
-        session.removeAttribute("detailInfoDiscount");
-        session.removeAttribute("detailInfoSchedule");
-
-        session.setAttribute("performanceInfo", performanceService.findInfo(requestValue.get("titleText").toString()));
-        if(!detailInfoNotice.isEmpty()){
-            session.setAttribute("detailInfoNotice", detailInfoNotice);
-        }
-        if(!detailInfoCasting.isEmpty()){
-            session.setAttribute("detailInfoCasting", detailInfoCasting);
-        }
-        if(!detailInfoDiscount.isEmpty()){
-            session.setAttribute("detailInfoDiscount", detailInfoDiscount);
-        }
-        if(!detailInfoSchedule.isEmpty()){
-            session.setAttribute("detailInfoSchedule", detailInfoSchedule);
-        }
+        infoDetailSearch(session, requestValue);
 
         return "redirect:/adminInfo";
     }
@@ -100,7 +77,7 @@ public class AdminController {
                                @RequestParam("detailCategory") String detailCategory,
                                @RequestParam("title") String title,
                                @RequestParam("infoMainImg") MultipartFile infoMainImg,
-                               @RequestParam("carousel") MultipartFile caroucel,
+                               @RequestParam("carousel") MultipartFile carousel,
                                @RequestParam("date") String date,
                                @RequestParam("place") String place,
                                @RequestParam("price") String price,
@@ -108,11 +85,39 @@ public class AdminController {
                                @RequestParam("ageGrade") String ageGrade,
                                @RequestParam("infoExplainImgArr") MultipartFile[] infoExplainImgArr,
                                @RequestParam("infoExplainSortArr") String[] infoExplainSortArr) throws IOException {
-        System.out.println("테스트");
-        InfoAddRequest infoAddRequest = new InfoAddRequest(category, detailCategory, title, infoMainImg, caroucel, date, place, price,
+        InfoAddRequest infoAddRequest = new InfoAddRequest(category, detailCategory, title, infoMainImg, carousel, date, place, price,
                 runTime, ageGrade, infoExplainImgArr, infoExplainSortArr);
 
         performanceService.addPerformInfo(infoAddRequest);
+
+
         return "redirect:/adminList";
+    }
+
+    //info조회
+    private void infoDetailSearch(HttpSession session, Map<String, Object> requestValue){
+        List<InfoResponse> detailInfoNotice = performanceService.findInfoImg(requestValue.get("titleText").toString(), "notice");
+        List<InfoResponse> detailInfoCasting = performanceService.findInfoImg(requestValue.get("titleText").toString(), "casting");
+        List<InfoResponse> detailInfoDiscount = performanceService.findInfoImg(requestValue.get("titleText").toString(), "discount");
+        List<InfoResponse> detailInfoSchedule = performanceService.findInfoImg(requestValue.get("titleText").toString(), "schedule");
+
+        session.removeAttribute("detailInfoNotice");
+        session.removeAttribute("detailInfoCasting");
+        session.removeAttribute("detailInfoDiscount");
+        session.removeAttribute("detailInfoSchedule");
+
+        session.setAttribute("performanceInfo", performanceService.findInfo(requestValue.get("titleText").toString()));
+        if(!detailInfoNotice.isEmpty()){
+            session.setAttribute("detailInfoNotice", detailInfoNotice);
+        }
+        if(!detailInfoCasting.isEmpty()){
+            session.setAttribute("detailInfoCasting", detailInfoCasting);
+        }
+        if(!detailInfoDiscount.isEmpty()){
+            session.setAttribute("detailInfoDiscount", detailInfoDiscount);
+        }
+        if(!detailInfoSchedule.isEmpty()){
+            session.setAttribute("detailInfoSchedule", detailInfoSchedule);
+        }
     }
 }
