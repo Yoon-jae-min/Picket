@@ -12,3 +12,4 @@
 - ![Static Badge](https://img.shields.io/badge/FrameWork-black?style=for-the-badge)![Static Badge](https://img.shields.io/badge/SpringBoot-green?style=for-the-badge)![Static Badge](https://img.shields.io/badge/3.1.0-gray?style=for-the-badge)
 - ![Static Badge](https://img.shields.io/badge/Database-black?style=for-the-badge)![Static Badge](https://img.shields.io/badge/Oracle%20DB-orange?style=for-the-badge)![Static Badge](https://img.shields.io/badge/11.2.0.2.0-gray?style=for-the-badge)
 - ![Static Badge](https://img.shields.io/badge/ORM-black?style=for-the-badge)![Static Badge](https://img.shields.io/badge/JPA-green?style=for-the-badge)
+- ![Static Badge](https://img.shields.io/badge/IDE-black?style=for-the-badge)![Static Badge](https://img.shields.io/badge/IntelliJ-red?style=for-the-badge)
